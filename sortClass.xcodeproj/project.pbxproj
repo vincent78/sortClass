@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF07DCA81AF8AE040016C73D /* AppUntils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF07DCA71AF8AE040016C73D /* AppUntils.swift */; };
+		BF07DCAA1AF8AE160016C73D /* DeviceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF07DCA91AF8AE160016C73D /* DeviceUtils.swift */; };
 		BF38F0381AF8A6C3009F6825 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38F0371AF8A6C3009F6825 /* AppDelegate.swift */; };
 		BF38F03A1AF8A6C3009F6825 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38F0391AF8A6C3009F6825 /* MasterViewController.swift */; };
 		BF38F03C1AF8A6C3009F6825 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38F03B1AF8A6C3009F6825 /* DetailViewController.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF07DCA71AF8AE040016C73D /* AppUntils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUntils.swift; sourceTree = "<group>"; };
+		BF07DCA91AF8AE160016C73D /* DeviceUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceUtils.swift; sourceTree = "<group>"; };
 		BF38F0321AF8A6C3009F6825 /* sortClass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sortClass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF38F0361AF8A6C3009F6825 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF38F0371AF8A6C3009F6825 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +62,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF07DCA61AF8ADB40016C73D /* app */ = {
+			isa = PBXGroup;
+			children = (
+				BF07DCA71AF8AE040016C73D /* AppUntils.swift */,
+				BF07DCA91AF8AE160016C73D /* DeviceUtils.swift */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
+		BF07DCAB1AF8B2780016C73D /* resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = resource;
+			sourceTree = "<group>";
+		};
 		BF38F0291AF8A6C2009F6825 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +99,8 @@
 		BF38F0341AF8A6C3009F6825 /* sortClass */ = {
 			isa = PBXGroup;
 			children = (
+				BF07DCAB1AF8B2780016C73D /* resource */,
+				BF07DCA61AF8ADB40016C73D /* app */,
 				BF38F0371AF8A6C3009F6825 /* AppDelegate.swift */,
 				BF38F0391AF8A6C3009F6825 /* MasterViewController.swift */,
 				BF38F03B1AF8A6C3009F6825 /* DetailViewController.swift */,
@@ -217,7 +239,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF38F03C1AF8A6C3009F6825 /* DetailViewController.swift in Sources */,
+				BF07DCAA1AF8AE160016C73D /* DeviceUtils.swift in Sources */,
 				BF38F03A1AF8A6C3009F6825 /* MasterViewController.swift in Sources */,
+				BF07DCA81AF8AE040016C73D /* AppUntils.swift in Sources */,
 				BF38F0381AF8A6C3009F6825 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
