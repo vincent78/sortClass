@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		BF07DCAF1AF8C2210016C73D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF07DCAE1AF8C2210016C73D /* MenuViewController.swift */; };
 		BF1BF87F1B097BDD00B152E1 /* OCDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1BF87E1B097BDD00B152E1 /* OCDevice.m */; };
+		BF1BF8811B09873700B152E1 /* LogUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1BF8801B09873700B152E1 /* LogUtil.swift */; };
+		BF1BF8831B09880C00B152E1 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1BF8821B09880C00B152E1 /* Application.swift */; };
+		BF1BF8851B09890200B152E1 /* JsonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1BF8841B09890200B152E1 /* JsonUtil.swift */; };
+		BF1BF8871B098D1D00B152E1 /* DeviceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1BF8861B098D1D00B152E1 /* DeviceUtil.swift */; };
+		BF1BF8891B098F7900B152E1 /* ThreadUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1BF8881B098F7900B152E1 /* ThreadUtil.swift */; };
 		BF38F0381AF8A6C3009F6825 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38F0371AF8A6C3009F6825 /* AppDelegate.swift */; };
 		BF38F03F1AF8A6C3009F6825 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF38F03D1AF8A6C3009F6825 /* Main.storyboard */; };
 		BF38F0411AF8A6C3009F6825 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF38F0401AF8A6C3009F6825 /* Images.xcassets */; };
@@ -20,6 +25,11 @@
 		BF1BF87C1B097BA400B152E1 /* oc-bridge-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "oc-bridge-header.h"; path = "../oc-bridge-header.h"; sourceTree = "<group>"; };
 		BF1BF87D1B097BDC00B152E1 /* OCDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCDevice.h; path = sortClass/system/OCDevice.h; sourceTree = SOURCE_ROOT; };
 		BF1BF87E1B097BDD00B152E1 /* OCDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCDevice.m; path = sortClass/system/OCDevice.m; sourceTree = SOURCE_ROOT; };
+		BF1BF8801B09873700B152E1 /* LogUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogUtil.swift; sourceTree = "<group>"; };
+		BF1BF8821B09880C00B152E1 /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		BF1BF8841B09890200B152E1 /* JsonUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonUtil.swift; sourceTree = "<group>"; };
+		BF1BF8861B098D1D00B152E1 /* DeviceUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceUtil.swift; path = sortClass/utils/DeviceUtil.swift; sourceTree = SOURCE_ROOT; };
+		BF1BF8881B098F7900B152E1 /* ThreadUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadUtil.swift; sourceTree = "<group>"; };
 		BF38F0321AF8A6C3009F6825 /* sortClass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sortClass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF38F0361AF8A6C3009F6825 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF38F0371AF8A6C3009F6825 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +61,10 @@
 		BF096F001B0976500042E3E6 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				BF1BF8861B098D1D00B152E1 /* DeviceUtil.swift */,
+				BF1BF8801B09873700B152E1 /* LogUtil.swift */,
+				BF1BF8841B09890200B152E1 /* JsonUtil.swift */,
+				BF1BF8881B098F7900B152E1 /* ThreadUtil.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -68,6 +82,7 @@
 		BF096F021B0976940042E3E6 /* application */ = {
 			isa = PBXGroup;
 			children = (
+				BF1BF8821B09880C00B152E1 /* Application.swift */,
 			);
 			path = application;
 			sourceTree = "<group>";
@@ -203,6 +218,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF1BF8871B098D1D00B152E1 /* DeviceUtil.swift in Sources */,
+				BF1BF8891B098F7900B152E1 /* ThreadUtil.swift in Sources */,
+				BF1BF8831B09880C00B152E1 /* Application.swift in Sources */,
+				BF1BF8851B09890200B152E1 /* JsonUtil.swift in Sources */,
+				BF1BF8811B09873700B152E1 /* LogUtil.swift in Sources */,
 				BF38F0381AF8A6C3009F6825 /* AppDelegate.swift in Sources */,
 				BF1BF87F1B097BDD00B152E1 /* OCDevice.m in Sources */,
 				BF07DCAF1AF8C2210016C73D /* MenuViewController.swift in Sources */,

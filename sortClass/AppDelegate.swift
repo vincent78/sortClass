@@ -22,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        splitViewController.delegate = self
         
         
-        print("the device ip:\(OCDevice.getIPAddress())")
-        
+
+        LogUtil.info("system", info:"the device ip:\(OCDevice.getIPAddress())")
         
         return true
     }
