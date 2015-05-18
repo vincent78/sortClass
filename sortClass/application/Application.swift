@@ -61,7 +61,7 @@ class Application {
     }
     
     
-    //MARK: - 能提供的信息
+    //MARK: - 提供的信息
     
     func resetInfo(){
         _info.removeAll(keepCapacity: false)
@@ -85,5 +85,38 @@ class Application {
         return Application.shareInstance().info["CFBundleVersion"]!
     }
     
+    //MARK: - 路径相关
     
+    /**
+    获取当前沙盒的路径
+    
+    :returns: <#return value description#>
+    */
+    class func getDocPath() -> String{
+        var pathInfo = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory
+        ,NSSearchPathDomainMask.UserDomainMask,true) as Array
+        
+        return pathInfo[0] as! String
+    }
+    
+    class func getCachePath() -> String{
+        var pathInfo = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory
+            ,NSSearchPathDomainMask.UserDomainMask,true) as Array
+        
+        return pathInfo[0] as! String
+    }
+    
+    class func getTmpPath() -> String{
+        return NSTemporaryDirectory();
+    }
+    
+    class func getLibPath() -> String{
+        var pathInfo = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.LibraryDirectory
+            ,NSSearchPathDomainMask.UserDomainMask,true) as Array
+        
+        return pathInfo[0] as! String
+    }
+    
+    
+
 }
