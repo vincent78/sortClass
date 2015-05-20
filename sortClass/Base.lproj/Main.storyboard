@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HhT-Je-dYg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HhT-Je-dYg">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--菜单页-->
         <scene sceneID="aaq-Yn-T9T">
             <objects>
-                <navigationController navigationBarHidden="YES" id="HhT-Je-dYg" sceneMemberID="viewController">
+                <navigationController title="菜单页" id="HhT-Je-dYg" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Am4-gb-IZ0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -18,12 +18,96 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJ2-1s-X7v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1554" y="-2012"/>
+            <point key="canvasLocation" x="-2640" y="-2462"/>
         </scene>
-        <!--Menu View Controller-->
+        <!--课程设置-->
+        <scene sceneID="Xxy-Ih-rFz">
+            <objects>
+                <navigationController title="课程设置" id="BxJ-Dn-xHO" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d0R-AH-qNw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="uPq-G2-dn6">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="R4v-0v-OzF" kind="relationship" relationship="rootViewController" id="IPj-Cb-sXa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UQG-Dl-2pn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1932" y="-1186"/>
+        </scene>
+        <!--学期设置-->
+        <scene sceneID="din-PS-nPA">
+            <objects>
+                <viewController title="学期设置" id="667-ne-yeC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FdS-UR-6oA"/>
+                        <viewControllerLayoutGuide type="bottom" id="jCJ-fY-4xx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="thJ-HR-mD2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="学期设置" id="FWv-BK-1TN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mfq-wO-tmc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2687" y="-370"/>
+        </scene>
+        <!--课程设置-->
+        <scene sceneID="3m2-Gl-QjZ">
+            <objects>
+                <viewController title="课程设置" id="R4v-0v-OzF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SRN-YO-RiG"/>
+                        <viewControllerLayoutGuide type="bottom" id="aC9-kD-5gc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sL0-Wu-QlV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="课程设置页" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KyR-gn-27Y">
+                                <rect key="frame" x="190" y="264" width="85" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="课程设置" id="8cA-Jf-Y1k"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="szf-xM-Qya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1932" y="-380"/>
+        </scene>
+        <!--任课老师-->
+        <scene sceneID="8nM-kI-T2t">
+            <objects>
+                <viewController title="任课老师" id="n1Y-FX-a7z" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YF7-bK-0CM"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZKp-gr-nYN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OdJ-2t-ZkB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="任课老师" id="hXP-of-dvT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="edM-qW-Pac" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1132" y="-392"/>
+        </scene>
+        <!--菜单页-->
         <scene sceneID="01r-g5-Hxn">
             <objects>
-                <viewController id="Tsq-Uu-VjB" customClass="MenuViewController" customModule="sortClass" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="菜单页" id="Tsq-Uu-VjB" customClass="MenuViewController" customModule="sortClass" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZpK-A7-yOd"/>
                         <viewControllerLayoutGuide type="bottom" id="Ycp-SL-lqC"/>
@@ -33,19 +117,138 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="这是菜单页" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSj-44-nue">
-                                <rect key="frame" x="243" y="274" width="85" height="21"/>
+                                <rect key="frame" x="354" y="188" width="85" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOF-Rc-rAT">
+                                <rect key="frame" x="80" y="112" width="60" height="30"/>
+                                <state key="normal" title="课程设置">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUl-UB-1uS">
+                                <rect key="frame" x="80" y="267" width="60" height="30"/>
+                                <state key="normal" title="任课老师">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="kig-ht-3nF" kind="show" id="73h-SZ-xkp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFX-kO-Fnd">
+                                <rect key="frame" x="80" y="160" width="60" height="30"/>
+                                <state key="normal" title="学期设置">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Y7k-E6-6gu" kind="show" id="YxJ-Su-g38"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwN-J8-kXI">
+                                <rect key="frame" x="80" y="315" width="60" height="30"/>
+                                <state key="normal" title="排课限制">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="OH1-0Q-A4N" kind="show" id="sTZ-Dj-l5Y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Mr-Nz-Azw">
+                                <rect key="frame" x="80" y="211" width="60" height="30"/>
+                                <state key="normal" title="课程设置">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BxJ-Dn-xHO" kind="show" id="lcN-xU-Bgz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="eOF-Rc-rAT"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="diD-07-If0"/>
+                    <navigationItem key="navigationItem" title="菜单页" id="diD-07-If0"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NW8-h3-Too" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-805" y="-2012"/>
+            <point key="canvasLocation" x="-1753" y="-2438"/>
+        </scene>
+        <!--排课限制-->
+        <scene sceneID="cTv-f7-Jqi">
+            <objects>
+                <navigationController title="排课限制" id="OH1-0Q-A4N" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LuQ-nC-BLT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Fxe-OQ-HSP" kind="relationship" relationship="rootViewController" id="56X-5s-OIR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2B0-5C-GCI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1018" y="-2426"/>
+        </scene>
+        <!--排课限制-->
+        <scene sceneID="goK-HU-KZf">
+            <objects>
+                <viewController title="排课限制" id="Fxe-OQ-HSP" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oqw-Wb-j8Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="QHE-kz-M9I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="c3I-Ut-irc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="排课限制" id="3Gv-79-9E8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="17K-cP-BkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-238" y="-2486"/>
+        </scene>
+        <!--任课老师-->
+        <scene sceneID="42O-tO-hPj">
+            <objects>
+                <navigationController title="任课老师" id="kig-ht-3nF" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="B6o-6l-XEe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="n1Y-FX-a7z" kind="relationship" relationship="rootViewController" id="yTV-AB-aym"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sB3-O7-vM5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1152" y="-1184"/>
+        </scene>
+        <!--学期设置-->
+        <scene sceneID="RS4-vo-8Ot">
+            <objects>
+                <navigationController title="学期设置" id="Y7k-E6-6gu" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="X13-li-qAB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="667-ne-yeC" kind="relationship" relationship="rootViewController" id="mvN-ao-Yxm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vvf-ff-yy7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2685" y="-1166"/>
         </scene>
     </scenes>
 </document>

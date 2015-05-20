@@ -19,8 +19,8 @@
 		BF38F0411AF8A6C3009F6825 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF38F0401AF8A6C3009F6825 /* Images.xcassets */; };
 		BF38F0441AF8A6C3009F6825 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF38F0421AF8A6C3009F6825 /* LaunchScreen.xib */; };
 		BF488E381B09DCEC0044E85D /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF488E371B09DCEC0044E85D /* UserDefault.swift */; };
-		BF488E3A1B09E3D20044E85D /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF488E391B09E3D20044E85D /* DateUtil.swift */; };
 		BF488E3C1B09E5C80044E85D /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF488E3B1B09E5C80044E85D /* Date.swift */; };
+		BFB5FD321B0CBD64009EF28A /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB5FD311B0CBD64009EF28A /* CouchbaseLite.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +42,8 @@
 		BF38F04E1AF8A6C3009F6825 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF38F04F1AF8A6C3009F6825 /* sortClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sortClassTests.swift; sourceTree = "<group>"; };
 		BF488E371B09DCEC0044E85D /* UserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
-		BF488E391B09E3D20044E85D /* DateUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		BF488E3B1B09E5C80044E85D /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		BFB5FD311B0CBD64009EF28A /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLite.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFB5FD321B0CBD64009EF28A /* CouchbaseLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,7 +72,6 @@
 				BF1BF8801B09873700B152E1 /* LogUtil.swift */,
 				BF1BF8841B09890200B152E1 /* JsonUtil.swift */,
 				BF1BF8881B098F7900B152E1 /* ThreadUtil.swift */,
-				BF488E391B09E3D20044E85D /* DateUtil.swift */,
 				BF488E3B1B09E5C80044E85D /* Date.swift */,
 			);
 			path = utils;
@@ -99,6 +99,7 @@
 		BF38F0291AF8A6C2009F6825 = {
 			isa = PBXGroup;
 			children = (
+				BFB5FD311B0CBD64009EF28A /* CouchbaseLite.framework */,
 				BF38F0341AF8A6C3009F6825 /* sortClass */,
 				BF38F04C1AF8A6C3009F6825 /* sortClassTests */,
 				BF38F0331AF8A6C3009F6825 /* Products */,
@@ -120,6 +121,8 @@
 				BF096F011B0976840042E3E6 /* system */,
 				BF096F001B0976500042E3E6 /* utils */,
 				BF07DCAB1AF8B2780016C73D /* resource */,
+				BFED71DC1B0AD3C400E8B16A /* viewcontroller */,
+				BFED71DD1B0AD3CC00E8B16A /* bus */,
 				BF38F0371AF8A6C3009F6825 /* AppDelegate.swift */,
 				BF38F03D1AF8A6C3009F6825 /* Main.storyboard */,
 				BF38F0401AF8A6C3009F6825 /* Images.xcassets */,
@@ -154,6 +157,20 @@
 				BF38F04E1AF8A6C3009F6825 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BFED71DC1B0AD3C400E8B16A /* viewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = viewcontroller;
+			sourceTree = "<group>";
+		};
+		BFED71DD1B0AD3CC00E8B16A /* bus */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = bus;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,7 +245,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF1BF8871B098D1D00B152E1 /* DeviceUtil.swift in Sources */,
-				BF488E3A1B09E3D20044E85D /* DateUtil.swift in Sources */,
 				BF1BF8891B098F7900B152E1 /* ThreadUtil.swift in Sources */,
 				BF1BF8831B09880C00B152E1 /* Application.swift in Sources */,
 				BF1BF8851B09890200B152E1 /* JsonUtil.swift in Sources */,
@@ -299,7 +315,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -338,7 +354,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -351,8 +367,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = sortClass/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "oc-bridge-header.h";
@@ -365,8 +385,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = sortClass/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "oc-bridge-header.h";
