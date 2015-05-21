@@ -31,7 +31,8 @@ class DeviceUtil: NSObject {
         infoDic["model"] = UIDevice.currentDevice().model
         //获取设备本地模型
         infoDic["localizedModel"] = UIDevice.currentDevice().localizedModel
-        
+        //唯一标识
+        infoDic["identifierForVendor"]=UIDevice.currentDevice().identifierForVendor.UUIDString        
         //ip地址
         infoDic["ipAddr"] = OCDevice.getIPAddress()
         
