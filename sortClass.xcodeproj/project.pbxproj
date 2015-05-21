@@ -20,6 +20,7 @@
 		BF38F0441AF8A6C3009F6825 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF38F0421AF8A6C3009F6825 /* LaunchScreen.xib */; };
 		BF488E381B09DCEC0044E85D /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF488E371B09DCEC0044E85D /* UserDefault.swift */; };
 		BF488E3C1B09E5C80044E85D /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF488E3B1B09E5C80044E85D /* Date.swift */; };
+		BF5AB87F1B0D983900FC81BE /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF5AB87E1B0D983900FC81BE /* AdSupport.framework */; };
 		BFB5FD321B0CBD64009EF28A /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB5FD311B0CBD64009EF28A /* CouchbaseLite.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		BF38F04F1AF8A6C3009F6825 /* sortClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sortClassTests.swift; sourceTree = "<group>"; };
 		BF488E371B09DCEC0044E85D /* UserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		BF488E3B1B09E5C80044E85D /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		BF5AB87E1B0D983900FC81BE /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		BFB5FD311B0CBD64009EF28A /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLite.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF5AB87F1B0D983900FC81BE /* AdSupport.framework in Frameworks */,
 				BFB5FD321B0CBD64009EF28A /* CouchbaseLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,6 +102,7 @@
 		BF38F0291AF8A6C2009F6825 = {
 			isa = PBXGroup;
 			children = (
+				BF5AB87E1B0D983900FC81BE /* AdSupport.framework */,
 				BFB5FD311B0CBD64009EF28A /* CouchbaseLite.framework */,
 				BF38F0341AF8A6C3009F6825 /* sortClass */,
 				BF38F04C1AF8A6C3009F6825 /* sortClassTests */,

@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
 
-//        LogUtil.info("system info", info:"\(Application.getInfoStr())")
+        LogUtil.info("system info", info:"\(Application.getInfoStr())")
 //        LogUtil.info("system info", info:"the screen :\(DeviceUtil.getWidth())  \(DeviceUtil.getHeight())")
 //        LogUtil.info("system info", info:"\(Application.getDocPath())")
 //        LogUtil.info("system info", info:"\(Application.getCachePath())")
