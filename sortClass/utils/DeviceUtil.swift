@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AdSupport
+
 
 
 class DeviceUtil: NSObject {
@@ -37,9 +37,8 @@ class DeviceUtil: NSObject {
         infoDic["identifierForVendor"]=UIDevice.currentDevice().identifierForVendor.UUIDString
         //ip地址
         infoDic["ipAddr"] = OCDevice.getIPAddress()
-        //广告的唯一标识
-        infoDic["advertisingIdentifier"] = ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString
-        
+        //广告的唯一标识   &无广告的APP最好不要用这个
+//        infoDic["advertisingIdentifier"] = ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString
 //        infoDic["advertisingTrackingEnabled"] = ASIdentifierManager.sharedManager().advertisingTrackingEnabled
 
         return infoDic;

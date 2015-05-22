@@ -11,6 +11,8 @@
 
 
 #import "OCDevice.h"
+#import "CouchbaseLite/CouchbaseLite.h"
+#import "CouchbaseLite/CBLDocument.h"
 
 
 #endif

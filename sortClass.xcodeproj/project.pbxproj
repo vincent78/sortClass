@@ -20,8 +20,14 @@
 		BF38F0441AF8A6C3009F6825 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF38F0421AF8A6C3009F6825 /* LaunchScreen.xib */; };
 		BF488E381B09DCEC0044E85D /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF488E371B09DCEC0044E85D /* UserDefault.swift */; };
 		BF488E3C1B09E5C80044E85D /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF488E3B1B09E5C80044E85D /* Date.swift */; };
-		BF5AB87F1B0D983900FC81BE /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF5AB87E1B0D983900FC81BE /* AdSupport.framework */; };
+		BF4B0B941B0DC00600E4F878 /* SerializeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4B0B931B0DC00600E4F878 /* SerializeUtil.swift */; };
+		BF4B0B971B0DDBE100E4F878 /* AppContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4B0B961B0DDBE100E4F878 /* AppContents.swift */; };
 		BFB5FD321B0CBD64009EF28A /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB5FD311B0CBD64009EF28A /* CouchbaseLite.framework */; };
+		BFE250E81B0EB2F900708F0A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFE250E71B0EB2F900708F0A /* CFNetwork.framework */; };
+		BFE250EA1B0EB37500708F0A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFE250E91B0EB37500708F0A /* Security.framework */; };
+		BFE250EC1B0EB37C00708F0A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFE250EB1B0EB37C00708F0A /* SystemConfiguration.framework */; };
+		BFE250EE1B0EB38E00708F0A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BFE250ED1B0EB38E00708F0A /* libz.dylib */; };
+		BFE250F01B0EB3A200708F0A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BFE250EF1B0EB3A200708F0A /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +50,14 @@
 		BF38F04F1AF8A6C3009F6825 /* sortClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sortClassTests.swift; sourceTree = "<group>"; };
 		BF488E371B09DCEC0044E85D /* UserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		BF488E3B1B09E5C80044E85D /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		BF5AB87E1B0D983900FC81BE /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		BF4B0B931B0DC00600E4F878 /* SerializeUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializeUtil.swift; sourceTree = "<group>"; };
+		BF4B0B961B0DDBE100E4F878 /* AppContents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContents.swift; sourceTree = "<group>"; };
 		BFB5FD311B0CBD64009EF28A /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLite.framework; sourceTree = "<group>"; };
+		BFE250E71B0EB2F900708F0A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		BFE250E91B0EB37500708F0A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		BFE250EB1B0EB37C00708F0A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BFE250ED1B0EB38E00708F0A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		BFE250EF1B0EB3A200708F0A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +65,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF5AB87F1B0D983900FC81BE /* AdSupport.framework in Frameworks */,
+				BFE250F01B0EB3A200708F0A /* libsqlite3.dylib in Frameworks */,
+				BFE250EE1B0EB38E00708F0A /* libz.dylib in Frameworks */,
+				BFE250EC1B0EB37C00708F0A /* SystemConfiguration.framework in Frameworks */,
+				BFE250EA1B0EB37500708F0A /* Security.framework in Frameworks */,
+				BFE250E81B0EB2F900708F0A /* CFNetwork.framework in Frameworks */,
 				BFB5FD321B0CBD64009EF28A /* CouchbaseLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,6 +92,7 @@
 				BF1BF8841B09890200B152E1 /* JsonUtil.swift */,
 				BF1BF8881B098F7900B152E1 /* ThreadUtil.swift */,
 				BF488E3B1B09E5C80044E85D /* Date.swift */,
+				BF4B0B931B0DC00600E4F878 /* SerializeUtil.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -95,6 +112,7 @@
 			children = (
 				BF1BF8821B09880C00B152E1 /* Application.swift */,
 				BF488E371B09DCEC0044E85D /* UserDefault.swift */,
+				BF4B0B961B0DDBE100E4F878 /* AppContents.swift */,
 			);
 			path = application;
 			sourceTree = "<group>";
@@ -102,8 +120,6 @@
 		BF38F0291AF8A6C2009F6825 = {
 			isa = PBXGroup;
 			children = (
-				BF5AB87E1B0D983900FC81BE /* AdSupport.framework */,
-				BFB5FD311B0CBD64009EF28A /* CouchbaseLite.framework */,
 				BF38F0341AF8A6C3009F6825 /* sortClass */,
 				BF38F04C1AF8A6C3009F6825 /* sortClassTests */,
 				BF38F0331AF8A6C3009F6825 /* Products */,
@@ -141,6 +157,7 @@
 		BF38F0351AF8A6C3009F6825 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BF4B0B921B0DBB1100E4F878 /* frameworks */,
 				BF38F0361AF8A6C3009F6825 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -161,6 +178,20 @@
 				BF38F04E1AF8A6C3009F6825 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BF4B0B921B0DBB1100E4F878 /* frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BFE250EF1B0EB3A200708F0A /* libsqlite3.dylib */,
+				BFE250ED1B0EB38E00708F0A /* libz.dylib */,
+				BFE250EB1B0EB37C00708F0A /* SystemConfiguration.framework */,
+				BFE250E91B0EB37500708F0A /* Security.framework */,
+				BFE250E71B0EB2F900708F0A /* CFNetwork.framework */,
+				BFB5FD311B0CBD64009EF28A /* CouchbaseLite.framework */,
+			);
+			name = frameworks;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		BFED71DC1B0AD3C400E8B16A /* viewcontroller */ = {
@@ -252,8 +283,10 @@
 				BF1BF8891B098F7900B152E1 /* ThreadUtil.swift in Sources */,
 				BF1BF8831B09880C00B152E1 /* Application.swift in Sources */,
 				BF1BF8851B09890200B152E1 /* JsonUtil.swift in Sources */,
+				BF4B0B941B0DC00600E4F878 /* SerializeUtil.swift in Sources */,
 				BF1BF8811B09873700B152E1 /* LogUtil.swift in Sources */,
 				BF488E381B09DCEC0044E85D /* UserDefault.swift in Sources */,
+				BF4B0B971B0DDBE100E4F878 /* AppContents.swift in Sources */,
 				BF38F0381AF8A6C3009F6825 /* AppDelegate.swift in Sources */,
 				BF488E3C1B09E5C80044E85D /* Date.swift in Sources */,
 				BF1BF87F1B097BDD00B152E1 /* OCDevice.m in Sources */,

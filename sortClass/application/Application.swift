@@ -12,10 +12,10 @@ class Application {
     
     private var _info:Dictionary<String,String> = [:]
     
-    
     init(){
-        
     }
+    
+    
     
     var info:Dictionary<String,String> {
         get {
