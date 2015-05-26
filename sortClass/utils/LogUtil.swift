@@ -15,6 +15,9 @@ enum LogLevel:Int
 
 class LogUtil: NSObject
 {
+    
+    //MARK: - basic
+    
     /**
     *  @brief  系统日志显示的等级
     */
@@ -39,5 +42,15 @@ class LogUtil: NSObject
         if (SYS_LOG_LEVEL.rawValue >= LogLevel.error.rawValue){
             println("** \(title)\n\(info)")
         }
+    }
+    
+    //MARK: - others
+    
+    class func printError(title:String, error:NSErrorPointer)
+    {
+        if (SYS_LOG_LEVEL.rawValue >= LogLevel.error.rawValue){
+            LogUtil.error(title, info: "error code:\(error.memory?.code)  \nmsg:\(error.memory?.userInfo)")
+        }
+        
     }
 }

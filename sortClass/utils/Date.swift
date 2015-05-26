@@ -62,6 +62,10 @@ extension Date {
     func dateWithDefault() -> String {
         return stringWithFormat("yyyy-MM-dd")
     }
+    
+    func timeWithDefault() -> String {
+        return stringWithFormat("yyyy-MM-dd HH:mm:ss")
+    }
 }
 
 // MARK: - 计算
