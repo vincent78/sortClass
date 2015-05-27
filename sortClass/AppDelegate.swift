@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         LogUtil.info("system info", info:"\(Application.getInfoStr())")
 //        LogUtil.info("system info", info:"the screen :\(DeviceUtil.getWidth())  \(DeviceUtil.getHeight())")
-//        LogUtil.info("system info", info:"\(Application.getDocPath())")
+        LogUtil.info("system info", info:"\(Application.getAppPath())")
 //        LogUtil.info("system info", info:"\(Application.getCachePath())")
 //        LogUtil.info("system info", info:"\(Application.getTmpPath())")
 //        LogUtil.info("system info", info:"\(Application.getLibPath())")
@@ -34,16 +34,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        LogUtil.info("time info", info: "\(Date().dateWithDefault())")
 //        LogUtil.info("time info", info: "\(Date().timeInterval)")
         
-//        var testDic = ["name":"hih","age":23]
-//        
-//        SerializeUtil.shareInstance().printDocumentCount()
-//        
-//        var docId = SerializeUtil.shareInstance().createDoc(testDic)
-//        
-//        SerializeUtil.shareInstance().printDocumentCount()
+        var testDic = ["name":"hih","age":23]
         
+        SerializeUtil.shareInstance().printDocumentCount()
         
+        var docId = SerializeUtil.shareInstance().createDoc(testDic)
         
+        SerializeUtil.shareInstance().printDocumentCount()
+        
+        testDic.updateValue(34, forKey: "age")
+        
+        SerializeUtil.shareInstance().updateDocById(docId!, infoDic: testDic)
+        
+        SerializeUtil.shareInstance().deleteDocById(docId!);
         
         
         return true

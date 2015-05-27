@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class SerializeUtil {
     
     //MARK: - Singleton
@@ -157,8 +158,7 @@ class SerializeUtil {
     
     
     //MARK: - other
-    func printDocumentCount()
-    {
+    func printDocumentCount(){
         LogUtil.debug(logTitle, info: "document count :\(database.documentCount)")
     }
 }

@@ -13,6 +13,6 @@ import UIKit
 
 class AppContents: NSObject {
 
-    static let DB_NAME:String = "testDB"
+    static let DB_NAME:String = "testdb"
     
 }

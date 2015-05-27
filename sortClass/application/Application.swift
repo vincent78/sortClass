@@ -87,6 +87,14 @@ class Application {
     
     //MARK: - 路径相关
     
+    class func getAppPath() ->String{
+        if var homePath = NSHomeDirectory(){
+            return homePath
+        } else {
+            return getDocPath().stringByDeletingLastPathComponent
+        }
+    }
+    
     /**
     获取当前沙盒的路径
     

@@ -9,8 +9,8 @@
 enum LogLevel:Int
 {
     case info   = 1
-    case debug   = 4
-    case error  = 7
+    case error   = 4
+    case debug  = 7
 }
 
 class LogUtil: NSObject
@@ -21,7 +21,7 @@ class LogUtil: NSObject
     /**
     *  @brief  系统日志显示的等级
     */
-    static let SYS_LOG_LEVEL:LogLevel = LogLevel.info
+    static let SYS_LOG_LEVEL:LogLevel = LogLevel.debug
     
     class func info(title:String, info:String)
     {
