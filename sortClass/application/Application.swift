@@ -10,17 +10,16 @@
 
 class Application {
     
-    private var _info:Dictionary<String,String> = [:]
+    private var _info:Dictionary<String,AnyObject> = [:]
     
     init(){
     }
     
     
     
-    var info:Dictionary<String,String> {
+    var info:Dictionary<String,AnyObject> {
         get {
             if (_info.isEmpty){
-                _info = DeviceUtil.getInfo();
                 genInfo()
             }
             return _info;
@@ -45,9 +44,16 @@ class Application {
     
     
     
-    //MARK: - 添加新的信息
     
-    func genInfo(){
+    
+    //MARK: - 提供的信息
+    
+    /**
+    获取系统的信息
+    */
+    private func genInfo(){
+        
+        _info = DeviceUtil.getInfo()
         
         let mainBundleInfoDict = NSBundle.mainBundle().infoDictionary
         if let info = mainBundleInfoDict {
@@ -57,24 +63,35 @@ class Application {
             _info["CFBundleShortVersionString"] = info["CFBundleShortVersionString"] as! String!
             // app build版本
             _info["CFBundleVersion"] = info["CFBundleVersion"]as! String!
+            // app path
+            _info["CFBundlePath"] = Application.getAppPath()
         }
     }
-    
-    
-    //MARK: - 提供的信息
-    
+    /**
+    重设系统的信息
+    */
     func resetInfo(){
         _info.removeAll(keepCapacity: false)
     }
+    
+    
     
     /**
     获取当前系统信息
     
     :returns: <#return value description#>
     */
-    class func getInfoStr() -> String{
-        return JsonUtil.toJSONStr(Application.shareInstance().info);
+    class func getInfoStr() -> Dictionary<String,AnyObject>{
+        return Application.shareInstance().info;
     }
+    
+    /**
+    打印系统信息
+    */
+    class func printSysInfo() {
+        LogUtil.info("\(JsonUtil.toJSONStr(Application.shareInstance().info))", title: "system info")
+    }
+    
     
     /**
     获取当前APP的版本
@@ -82,7 +99,7 @@ class Application {
     :returns: <#return value description#>
     */
     class func getVersion() -> String{
-        return Application.shareInstance().info["CFBundleVersion"]!
+        return Application.shareInstance().info["CFBundleVersion"] as! String
     }
     
     //MARK: - 路径相关
@@ -95,11 +112,6 @@ class Application {
         }
     }
     
-    /**
-    获取当前沙盒的路径
-    
-    :returns: <#return value description#>
-    */
     class func getDocPath() -> String{
         var pathInfo = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory
         ,NSSearchPathDomainMask.UserDomainMask,true) as Array

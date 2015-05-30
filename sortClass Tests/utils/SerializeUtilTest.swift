@@ -22,6 +22,7 @@ class SerializeUtilTest: XCTestCase {
     init() {
 
         testDic = ["name":"serializeTest","age":23]
+        LogUtil.debug("testDic:\(testDic)", title: logTitle)
         super.init()
     }
     
@@ -39,8 +40,18 @@ class SerializeUtilTest: XCTestCase {
 
     func testCreateDocument() {
         if var docId = serializeUtil.createDoc(testDic) {
-            LogUtil.debug("" ,title:logTitle)
+            XCTAssertNotNil(docId, "test doc created success!")
+            testDic.updateValue(24, forKey: "age")
+            testDic.updateValue("test", forKey: "remark")
+            LogUtil.debug("testDic:\(testDic)", title: logTitle)
+            XCTAssert(serializeUtil.updateDocById(docId, infoDic: testDic), "update the test success!")
+            
+            
+            
+        } else {
+            XCTFail("doc create failure!")
         }
+        
         
         
         
