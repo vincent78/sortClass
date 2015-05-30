@@ -73,7 +73,7 @@ class Application {
     :returns: <#return value description#>
     */
     class func getInfoStr() -> String{
-        return JsonUtil.toJSONString(Application.shareInstance().info);
+        return JsonUtil.toJSONStr(Application.shareInstance().info);
     }
     
     /**

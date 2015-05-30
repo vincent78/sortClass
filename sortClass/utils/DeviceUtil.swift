@@ -10,16 +10,16 @@ import UIKit
 
 
 
-class DeviceUtil: NSObject {
+public class DeviceUtil: NSObject {
     
     
-    class func getVersion() -> String{
+    public class func getVersion() -> String{
         
         return UIDevice.currentDevice().systemVersion
         
     }
     
-    class func getInfo() -> Dictionary<String,String> {
+    public class func getInfo() -> Dictionary<String,String> {
         
         var infoDic:Dictionary<String , String> = [:]
         
@@ -48,7 +48,7 @@ class DeviceUtil: NSObject {
     
     :returns: <#return value description#>
     */
-    class func getWidth() -> CGFloat{
+    public class func getWidth() -> CGFloat{
         return UIScreen.mainScreen().bounds.width
     }
     
@@ -57,7 +57,7 @@ class DeviceUtil: NSObject {
     
     :returns: <#return value description#>
     */
-    class func getHeight() -> CGFloat{
+    public class func getHeight() -> CGFloat{
         return UIScreen.mainScreen().bounds.height
     }
     

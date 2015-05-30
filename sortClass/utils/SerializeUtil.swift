@@ -9,11 +9,11 @@
 import UIKit
 
 
-class SerializeUtil {
+public class SerializeUtil {
     
     //MARK: - Singleton
     
-    class func shareInstance()->SerializeUtil{
+    public class func shareInstance()->SerializeUtil{
         struct Singleton{
             static var predicate:dispatch_once_t = 0
             static var instance:SerializeUtil? = nil
@@ -63,7 +63,7 @@ class SerializeUtil {
     
     //MARK: - CRUD
     
-    func createDoc(infoDic:Dictionary<NSObject , AnyObject>) -> String?
+    public func createDoc(infoDic:Dictionary<NSObject , AnyObject>) -> String?
     {
         var error:NSError?
         
@@ -74,13 +74,13 @@ class SerializeUtil {
         if (error != nil) {
             LogUtil.printError(logTitle, error: &error)
             return nil;
-        }
-        else {
+        } else {
+            LogUtil.debug(logTitle, info: "doc[\(doc.documentID) created success!]")
             return doc.documentID;
         }
     }
     
-    func loadDoc(id:String) -> CBLDocument?
+    public func loadDoc(id:String) -> CBLDocument?
     {
         var doc = database.documentWithID(id)
         if (doc.isDeleted) {
@@ -91,7 +91,7 @@ class SerializeUtil {
         }
     }
     
-    func loadDocIncludeDeleted(id:String) -> CBLDocument?
+    public func loadDocIncludeDeleted(id:String) -> CBLDocument?
     {
         return database.documentWithID(id)
     }
@@ -102,7 +102,7 @@ class SerializeUtil {
     }
     
     
-    func updateDocById(id:String, infoDic:Dictionary<NSObject,AnyObject>) -> Bool {
+    public func updateDocById(id:String, infoDic:Dictionary<NSObject,AnyObject>) -> Bool {
         
         if var doc = loadDoc(id) {
             return updateDoc(doc, infoDic: infoDic)
@@ -113,13 +113,14 @@ class SerializeUtil {
     }
     
     
-    func updateDoc(doc :CBLDocument ,infoDic:Dictionary<NSObject,AnyObject>) -> Bool {
+    public func updateDoc(var doc :CBLDocument! ,infoDic:Dictionary<NSObject,AnyObject>) -> Bool {
+        
         var error:NSError?
-        if (doc.putProperties(infoDic, error: &error) != nil) {
+        var newRev = doc.putProperties(infoDic, error: &error)
+        if (newRev != nil) {
             LogUtil.debug(logTitle, info: "doc[\(doc.documentID)] update success!")
             return true;
-        }
-        else {
+        } else {
             if (error != nil) {
                 LogUtil.printError(logTitle, error: &error)
             } else {
@@ -129,7 +130,7 @@ class SerializeUtil {
         }
     }
     
-    func deleteDoc(doc :CBLDocument ) {
+    public func deleteDoc(doc :CBLDocument ) {
         
         if (doc.isDeleted) {
             LogUtil.debug(logTitle, info: "doc[\(doc.documentID)] has deleted!")
@@ -148,7 +149,7 @@ class SerializeUtil {
         }
     }
     
-    func deleteDocById(id:String) {
+    public func deleteDocById(id:String) {
         if var doc = loadDoc(id) {
             deleteDoc(doc)
         } else {
@@ -157,8 +158,8 @@ class SerializeUtil {
     }
     
     
-    //MARK: - other
-    func printDocumentCount(){
-        LogUtil.debug(logTitle, info: "document count :\(database.documentCount)")
+    //MARK: - db info
+    public func getDocumentCount() -> Int {
+        return Int(database.documentCount)
     }
 }

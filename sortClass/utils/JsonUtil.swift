@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 Fruit. All rights reserved.
 //
 
-class JsonUtil: NSObject
+public class JsonUtil: NSObject
 {
     
     /**
@@ -17,7 +17,7 @@ class JsonUtil: NSObject
     
     :returns: <#return value description#>
     */
-    class func toJSONString(obj: AnyObject)->String{
+    public class func toJSONStr(obj: AnyObject)->String{
 
         if (NSJSONSerialization.isValidJSONObject(obj))
         {

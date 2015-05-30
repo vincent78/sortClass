@@ -34,21 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        LogUtil.info("time info", info: "\(Date().dateWithDefault())")
 //        LogUtil.info("time info", info: "\(Date().timeInterval)")
         
-        var testDic = ["name":"hih","age":23]
-        
-        SerializeUtil.shareInstance().printDocumentCount()
-        
-        var docId = SerializeUtil.shareInstance().createDoc(testDic)
-        
-        SerializeUtil.shareInstance().printDocumentCount()
-        
-        testDic.updateValue(34, forKey: "age")
-        
-        SerializeUtil.shareInstance().updateDocById(docId!, infoDic: testDic)
-        
-        SerializeUtil.shareInstance().deleteDocById(docId!);
-        
-        
         return true
     }
 

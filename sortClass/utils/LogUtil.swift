@@ -6,14 +6,14 @@
 //  Copyright (c) 2015年 Fruit. All rights reserved.
 //
 
-enum LogLevel:Int
+enum LogLevel:UInt
 {
     case info   = 1
     case error   = 4
     case debug  = 7
 }
 
-class LogUtil: NSObject
+public class LogUtil: NSObject
 {
     
     //MARK: - basic
@@ -23,21 +23,21 @@ class LogUtil: NSObject
     */
     static let SYS_LOG_LEVEL:LogLevel = LogLevel.debug
     
-    class func info(title:String, info:String)
+    public class func info(title:String, info:String)
     {
         if SYS_LOG_LEVEL.rawValue >= LogLevel.info.rawValue {
             println("-- \(title)\n\(info)")
         }
     }
     
-    class func debug(title:String, info:String)
+    public class func debug(title:String, info:String)
     {
         if (SYS_LOG_LEVEL.rawValue >= LogLevel.debug.rawValue ) {
             println("== \(title)\n\(info)")
         }
     }
     
-    class func error(title:String, info:String)
+    public class func error(title:String, info:String)
     {
         if (SYS_LOG_LEVEL.rawValue >= LogLevel.error.rawValue){
             println("** \(title)\n\(info)")
@@ -46,7 +46,7 @@ class LogUtil: NSObject
     
     //MARK: - others
     
-    class func printError(title:String, error:NSErrorPointer)
+    public class func printError(title:String, error:NSErrorPointer)
     {
         if (SYS_LOG_LEVEL.rawValue >= LogLevel.error.rawValue){
             LogUtil.error(title, info: "error code:\(error.memory?.code)  \nmsg:\(error.memory?.userInfo)")
