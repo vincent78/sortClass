@@ -23,21 +23,21 @@ public class LogUtil: NSObject
     */
     static let SYS_LOG_LEVEL:LogLevel = LogLevel.debug
     
-    public class func info(title:String, info:String)
+    public class func info(info:String , title:String = "default title")
     {
         if SYS_LOG_LEVEL.rawValue >= LogLevel.info.rawValue {
             println("-- \(title)\n\(info)")
         }
     }
     
-    public class func debug(title:String, info:String)
+    public class func debug(info:String , title:String = "default title")
     {
         if (SYS_LOG_LEVEL.rawValue >= LogLevel.debug.rawValue ) {
             println("== \(title)\n\(info)")
         }
     }
     
-    public class func error(title:String, info:String)
+    public class func error(info:String , title:String = "default title")
     {
         if (SYS_LOG_LEVEL.rawValue >= LogLevel.error.rawValue){
             println("** \(title)\n\(info)")
@@ -46,10 +46,10 @@ public class LogUtil: NSObject
     
     //MARK: - others
     
-    public class func printError(title:String, error:NSErrorPointer)
+    public class func printError(error:NSErrorPointer ,title:String = "default title")
     {
         if (SYS_LOG_LEVEL.rawValue >= LogLevel.error.rawValue){
-            LogUtil.error(title, info: "error code:\(error.memory?.code)  \nmsg:\(error.memory?.userInfo)")
+            LogUtil.error("error code:\(error.memory?.code)  \nmsg:\(error.memory?.userInfo)" ,title: title)
         }
         
     }

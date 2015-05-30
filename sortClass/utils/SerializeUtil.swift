@@ -47,15 +47,15 @@ public class SerializeUtil {
             database = dbManger.databaseNamed(AppContents.DB_NAME, error: &error)
             
             if (error != nil) {
-                LogUtil.printError(logTitle, error: &error)
+                LogUtil.printError(&error ,title:logTitle)
                 return;
             }
             
-            LogUtil.info(logTitle, info: "path:\(dbManger.directory)")
+            LogUtil.info("path:\(dbManger.directory)" ,title:logTitle)
         }
         else
         {
-            LogUtil.error(logTitle, info: "the bad db name")
+            LogUtil.error("the bad db name" ,title:logTitle)
         }
         
         
@@ -72,10 +72,10 @@ public class SerializeUtil {
         var newRevision =  doc.putProperties(infoDic, error: &error)
         
         if (error != nil) {
-            LogUtil.printError(logTitle, error: &error)
+            LogUtil.printError(&error ,title:logTitle)
             return nil;
         } else {
-            LogUtil.debug(logTitle, info: "doc[\(doc.documentID) created success!]")
+            LogUtil.debug("doc[\(doc.documentID) created success!]" ,title:logTitle)
             return doc.documentID;
         }
     }
@@ -84,7 +84,7 @@ public class SerializeUtil {
     {
         var doc = database.documentWithID(id)
         if (doc.isDeleted) {
-            LogUtil.debug(logTitle, info: "doc[\(id)] is deleted!")
+            LogUtil.debug("doc[\(id)] is deleted!" ,title:logTitle)
             return nil;
         } else {
             return doc;
@@ -107,7 +107,7 @@ public class SerializeUtil {
         if var doc = loadDoc(id) {
             return updateDoc(doc, infoDic: infoDic)
         } else {
-            LogUtil.error(logTitle, info: "doc[\(id) is not exist!]")
+            LogUtil.error("doc[\(id) is not exist!]" , title:logTitle)
             return false;
         }
     }
@@ -118,13 +118,13 @@ public class SerializeUtil {
         var error:NSError?
         var newRev = doc.putProperties(infoDic, error: &error)
         if (newRev != nil) {
-            LogUtil.debug(logTitle, info: "doc[\(doc.documentID)] update success!")
+            LogUtil.debug("doc[\(doc.documentID)] update success!" ,title:logTitle)
             return true;
         } else {
             if (error != nil) {
-                LogUtil.printError(logTitle, error: &error)
+                LogUtil.printError(&error ,title:logTitle)
             } else {
-                LogUtil.error(logTitle, info: "doc[\(doc.documentID) update failure!]")
+                LogUtil.error("doc[\(doc.documentID) update failure!]" ,title:logTitle)
             }
             return false;
         }
@@ -133,18 +133,18 @@ public class SerializeUtil {
     public func deleteDoc(doc :CBLDocument ) {
         
         if (doc.isDeleted) {
-            LogUtil.debug(logTitle, info: "doc[\(doc.documentID)] has deleted!")
+            LogUtil.debug("doc[\(doc.documentID)] has deleted!" ,title:logTitle)
             return
         }
         
         var error:NSError?
         if (doc.deleteDocument(&error)) {
-            LogUtil.debug(logTitle, info: "doc[\(doc.documentID)] delete success!")
+            LogUtil.debug("doc[\(doc.documentID)] delete success!" ,title:logTitle)
         } else {
             if (error != nil) {
-                LogUtil.printError(logTitle, error: &error)
+                LogUtil.printError(&error ,title:logTitle)
             } else {
-                LogUtil.error(logTitle, info: "doc[\(doc.documentID) delete failure!]")
+                LogUtil.error("doc[\(doc.documentID) delete failure!]" ,title:logTitle)
             }
         }
     }
@@ -153,13 +153,13 @@ public class SerializeUtil {
         if var doc = loadDoc(id) {
             deleteDoc(doc)
         } else {
-            LogUtil.debug(logTitle, info: "doc[\(id)] is not exist!")
+            LogUtil.debug("doc[\(id)] is not exist!" ,title:logTitle)
         }
     }
     
     
     //MARK: - db info
-    public func getDocumentCount() -> Int {
-        return Int(database.documentCount)
+    public func getDocumentCount() -> UInt {
+        return database.documentCount
     }
 }

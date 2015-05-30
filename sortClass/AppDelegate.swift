@@ -24,9 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
 
-        LogUtil.info("system info", info:"\(Application.getInfoStr())")
+//        LogUtil.info("system info", title:"\(Application.getInfoStr())")
 //        LogUtil.info("system info", info:"the screen :\(DeviceUtil.getWidth())  \(DeviceUtil.getHeight())")
-        LogUtil.info("system info", info:"\(Application.getAppPath())")
+//        LogUtil.info("system info", info:"\(Application.getAppPath())")
 //        LogUtil.info("system info", info:"\(Application.getCachePath())")
 //        LogUtil.info("system info", info:"\(Application.getTmpPath())")
 //        LogUtil.info("system info", info:"\(Application.getLibPath())")

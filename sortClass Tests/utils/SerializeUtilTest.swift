@@ -12,20 +12,42 @@ import sortClass
 
 class SerializeUtilTest: XCTestCase {
     
+    var logTitle = "test serialize"
+    
+    var testDic:Dictionary<NSObject,AnyObject>
+    
+    let serializeUtil = SerializeUtil.shareInstance()
+    
+    override
+    init() {
+
+        testDic = ["name":"serializeTest","age":23]
+        super.init()
+    }
+    
     override func setUp() {
         super.setUp()
-//        LogUtil
+        printDocumentCount()
+        
+        
     }
     
     override func tearDown() {
         super.tearDown()
+        printDocumentCount()
     }
 
     func testCreateDocument() {
+        if var docId = serializeUtil.createDoc(testDic) {
+            LogUtil.debug("" ,title:logTitle)
+        }
         
-        var testDic = ["name":"hih","age":23]
-
-//
-//        var docId = SerializeUtil.shareInstance().createDoc(testDic)
+        
+        
     }
+    
+    func printDocumentCount() {
+        LogUtil.debug("the document count is \(serializeUtil.getDocumentCount())" ,title:logTitle)
+    }
+    
 }
