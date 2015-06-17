@@ -39,18 +39,11 @@ class SerializeUtilTest: XCTestCase {
             testDic.updateValue("test", forKey: "remark")
             LogUtil.debug("testDic:\(testDic)", title: logTitle)
             XCTAssert(serializeUtil.updateDocById(docId, infoDic: testDic), "update the test success!")
+            XCTAssert(serializeUtil.deleteDocById(docId), "delete the test success!")
         } else {
             XCTFail("doc create failure!")
         }
     }
-    
-    func testUpdate() {
-        var docId = "7D368CF0-CB41-429B-B89D-792D83B7EBED";
-        testDic.updateValue(24, forKey: "age")
-        testDic.updateValue("test", forKey: "remark")
-        XCTAssert(serializeUtil.updateDocById(docId, infoDic: testDic), "update the test success!")
-    }
-    
     
     
     func printDocumentCount() {

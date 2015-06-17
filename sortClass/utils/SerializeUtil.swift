@@ -32,7 +32,7 @@ public class SerializeUtil {
     
     var database:CBLDatabase!
     
-    let logTitle = "db info"
+    let logTitle = "couchbase info"
     
     
     //MARK: - lifecycle
@@ -143,32 +143,38 @@ public class SerializeUtil {
         }
     }
     
-    public func deleteDoc(doc :CBLDocument ) {
+    public func deleteDoc(doc :CBLDocument ) -> Bool {
         
         if (doc.isDeleted) {
             LogUtil.debug("doc[\(doc.documentID)] has deleted!" ,title:logTitle)
-            return
+            return true;
         }
         
         var error:NSError?
         if (doc.deleteDocument(&error)) {
             LogUtil.debug("doc[\(doc.documentID)] delete success!" ,title:logTitle)
+            return true;
         } else {
             if (error != nil) {
                 LogUtil.printError(&error ,title:logTitle)
             } else {
                 LogUtil.error("doc[\(doc.documentID) delete failure!]" ,title:logTitle)
             }
+            return false;
         }
     }
     
-    public func deleteDocById(id:String) {
+    public func deleteDocById(id:String) ->Bool{
         if var doc = loadDoc(id) {
-            deleteDoc(doc)
+           return deleteDoc(doc)
         } else {
             LogUtil.debug("doc[\(id)] is not exist!" ,title:logTitle)
+            return false;
         }
     }
+    
+    
+    //MARK: - query
     
     
     //MARK: - db info
