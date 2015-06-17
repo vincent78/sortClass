@@ -65,6 +65,7 @@ public class SerializeUtil {
     
     public func createDoc(infoDic:Dictionary<NSObject , AnyObject>) -> String?
     {
+        var docId:String!
         var error:NSError?
         
         var doc = database.createDocument()
@@ -76,7 +77,9 @@ public class SerializeUtil {
             return nil;
         } else {
             LogUtil.debug("doc[\(doc.documentID) created success!]" ,title:logTitle)
-            return doc.documentID;
+            docId = doc.documentID
+            doc = nil
+            return docId;
         }
     }
     
@@ -116,7 +119,17 @@ public class SerializeUtil {
     public func updateDoc(var doc :CBLDocument! ,infoDic:Dictionary<NSObject,AnyObject>) -> Bool {
         
         var error:NSError?
-        var newRev = doc.putProperties(infoDic, error: &error)
+        var actDic = Dictionary<NSObject,AnyObject>()
+        
+        if var revId = doc.currentRevisionID {
+            for (key,value) in infoDic {
+                actDic[key] = value
+            }
+            actDic.updateValue(revId, forKey: "_rev")
+        }
+        
+        
+        var newRev = doc.putProperties(actDic, error: &error)
         if (newRev != nil) {
             LogUtil.debug("doc[\(doc.documentID)] update success!" ,title:logTitle)
             return true;

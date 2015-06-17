@@ -14,22 +14,16 @@ class SerializeUtilTest: XCTestCase {
     
     var logTitle = "test serialize"
     
-    var testDic:Dictionary<NSObject,AnyObject>
+    var testDic:Dictionary<NSObject,AnyObject>!
     
     let serializeUtil = SerializeUtil.shareInstance()
-    
-    override
-    init() {
-
-        testDic = ["name":"serializeTest","age":23]
-        LogUtil.debug("testDic:\(testDic)", title: logTitle)
-        super.init()
-    }
     
     override func setUp() {
         super.setUp()
         printDocumentCount()
         
+        testDic = ["name":"serializeTest","age":23]
+        LogUtil.debug("testDic:\(testDic)", title: logTitle)
         
     }
     
@@ -38,24 +32,26 @@ class SerializeUtilTest: XCTestCase {
         printDocumentCount()
     }
 
-    func testCreateDocument() {
+    func testCRUD() {
         if var docId = serializeUtil.createDoc(testDic) {
             XCTAssertNotNil(docId, "test doc created success!")
             testDic.updateValue(24, forKey: "age")
             testDic.updateValue("test", forKey: "remark")
             LogUtil.debug("testDic:\(testDic)", title: logTitle)
             XCTAssert(serializeUtil.updateDocById(docId, infoDic: testDic), "update the test success!")
-            
-            
-            
         } else {
             XCTFail("doc create failure!")
         }
-        
-        
-        
-        
     }
+    
+    func testUpdate() {
+        var docId = "7D368CF0-CB41-429B-B89D-792D83B7EBED";
+        testDic.updateValue(24, forKey: "age")
+        testDic.updateValue("test", forKey: "remark")
+        XCTAssert(serializeUtil.updateDocById(docId, infoDic: testDic), "update the test success!")
+    }
+    
+    
     
     func printDocumentCount() {
         LogUtil.debug("the document count is \(serializeUtil.getDocumentCount())" ,title:logTitle)
