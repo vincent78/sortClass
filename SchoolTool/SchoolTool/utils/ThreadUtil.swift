@@ -32,7 +32,12 @@ public class ThreadUtil: NSObject {
     :param: doBlock <#doBlock description#>
     */
     public  class func gcd_Main_sync( doBlock: ()->Void) {
-        dispatch_sync(dispatch_get_main_queue(),doBlock)
+        
+        if (!NSThread.currentThread().isMainThread) {
+            dispatch_sync(dispatch_get_main_queue(),doBlock)
+        } else {
+            dispatch_async(dispatch_get_main_queue(), doBlock)
+        }
     }
     
     
@@ -58,7 +63,7 @@ public class ThreadUtil: NSObject {
         dispatch_async(ThreadUtil.SerialQueue, doBlock)
     }
     
-    public class func gcd_Back_Sync(doBlock:()->Void,waitToRun:Bool = true) {
+    public class func gcd_Back_Sync(waitToRun:Bool = true,doBlock:()->Void) {
         if (!waitToRun) {
             dispatch_async(ThreadUtil.SerialQueue, doBlock)
         }

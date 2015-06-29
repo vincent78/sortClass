@@ -12,7 +12,6 @@
 		BF60FDCC1B4136A800B78AC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF60FDCA1B4136A800B78AC1 /* Main.storyboard */; };
 		BF60FDCE1B4136A800B78AC1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF60FDCD1B4136A800B78AC1 /* Images.xcassets */; };
 		BF60FDD11B4136A800B78AC1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF60FDCF1B4136A800B78AC1 /* LaunchScreen.xib */; };
-		BF60FDDD1B4136A800B78AC1 /* SchoolToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60FDDC1B4136A800B78AC1 /* SchoolToolTests.swift */; };
 		BF60FE041B4137AF00B78AC1 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF60FE031B4137AF00B78AC1 /* CouchbaseLite.framework */; };
 		BF60FE111B41387200B78AC1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF60FE101B41387200B78AC1 /* libz.dylib */; };
 		BF60FE131B41388200B78AC1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF60FE121B41388200B78AC1 /* libsqlite3.dylib */; };
@@ -54,7 +53,6 @@
 		BF60FDD01B4136A800B78AC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		BF60FDD61B4136A800B78AC1 /* SchoolToolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SchoolToolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF60FDDB1B4136A800B78AC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF60FDDC1B4136A800B78AC1 /* SchoolToolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolToolTests.swift; sourceTree = "<group>"; };
 		BF60FE031B4137AF00B78AC1 /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLite.framework; sourceTree = "<group>"; };
 		BF60FE101B41387200B78AC1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF60FE121B41388200B78AC1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -153,7 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				BF60FE3D1B41448F00B78AC1 /* utils */,
-				BF60FDDC1B4136A800B78AC1 /* SchoolToolTests.swift */,
 				BF60FDDA1B4136A800B78AC1 /* Supporting Files */,
 			);
 			path = SchoolToolTests;
@@ -363,7 +360,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF60FDDD1B4136A800B78AC1 /* SchoolToolTests.swift in Sources */,
 				BF60FE411B41448F00B78AC1 /* ThreadTests.swift in Sources */,
 				BF60FE401B41448F00B78AC1 /* CouchbaseTests.swift in Sources */,
 			);
@@ -435,10 +431,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -474,9 +471,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -568,6 +566,7 @@
 				BF60FDE21B4136A800B78AC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BF60FDE31B4136A800B78AC1 /* Build configuration list for PBXNativeTarget "SchoolToolTests" */ = {
 			isa = XCConfigurationList;
@@ -576,6 +575,7 @@
 				BF60FDE51B4136A800B78AC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
