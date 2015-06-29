@@ -1,0 +1,583 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF60FDC71B4136A800B78AC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60FDC61B4136A800B78AC1 /* AppDelegate.swift */; };
+		BF60FDC91B4136A800B78AC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60FDC81B4136A800B78AC1 /* ViewController.swift */; };
+		BF60FDCC1B4136A800B78AC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF60FDCA1B4136A800B78AC1 /* Main.storyboard */; };
+		BF60FDCE1B4136A800B78AC1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF60FDCD1B4136A800B78AC1 /* Images.xcassets */; };
+		BF60FDD11B4136A800B78AC1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF60FDCF1B4136A800B78AC1 /* LaunchScreen.xib */; };
+		BF60FDDD1B4136A800B78AC1 /* SchoolToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60FDDC1B4136A800B78AC1 /* SchoolToolTests.swift */; };
+		BF60FE041B4137AF00B78AC1 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF60FE031B4137AF00B78AC1 /* CouchbaseLite.framework */; };
+		BF60FE111B41387200B78AC1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF60FE101B41387200B78AC1 /* libz.dylib */; };
+		BF60FE131B41388200B78AC1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF60FE121B41388200B78AC1 /* libsqlite3.dylib */; };
+		BF60FE1B1B41390200B78AC1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF60FE1A1B41390200B78AC1 /* CFNetwork.framework */; };
+		BF60FE1D1B41390D00B78AC1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF60FE1C1B41390D00B78AC1 /* SystemConfiguration.framework */; };
+		BF60FE1F1B41391600B78AC1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF60FE1E1B41391600B78AC1 /* Security.framework */; };
+		BF60FE211B413A8C00B78AC1 /* DeviceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60FE201B413A8C00B78AC1 /* DeviceUtil.swift */; };
+		BF60FE231B413ACD00B78AC1 /* LogUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60FE221B413ACD00B78AC1 /* LogUtil.swift */; };
+		BF60FE251B413B0200B78AC1 /* JsonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60FE241B413B0200B78AC1 /* JsonUtil.swift */; };
+		BF60FE271B413B4700B78AC1 /* ThreadUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60FE261B413B4700B78AC1 /* ThreadUtil.swift */; };
+		BF60FE291B413BCC00B78AC1 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60FE281B413BCC00B78AC1 /* Date.swift */; };
+		BF60FE2B1B413C2300B78AC1 /* CouchbaseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60FE2A1B413C2300B78AC1 /* CouchbaseUtil.swift */; };
+		BF60FE2F1B413D2700B78AC1 /* OCDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = BF60FE2E1B413D2700B78AC1 /* OCDevice.m */; };
+		BF60FE321B413DFC00B78AC1 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60FE311B413DFC00B78AC1 /* DateUtil.swift */; };
+		BF60FE341B413E4F00B78AC1 /* UserDefaultUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60FE331B413E4F00B78AC1 /* UserDefaultUtil.swift */; };
+		BF60FE361B413EA900B78AC1 /* AppContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60FE351B413EA900B78AC1 /* AppContents.swift */; };
+		BF60FE381B413EC100B78AC1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60FE371B413EC100B78AC1 /* App.swift */; };
+		BF60FE401B41448F00B78AC1 /* CouchbaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60FE3E1B41448F00B78AC1 /* CouchbaseTests.swift */; };
+		BF60FE411B41448F00B78AC1 /* ThreadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60FE3F1B41448F00B78AC1 /* ThreadTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BF60FDD71B4136A800B78AC1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF60FDB91B4136A800B78AC1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF60FDC01B4136A800B78AC1;
+			remoteInfo = SchoolTool;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BF60FDC11B4136A800B78AC1 /* SchoolTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchoolTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF60FDC51B4136A800B78AC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF60FDC61B4136A800B78AC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BF60FDC81B4136A800B78AC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BF60FDCB1B4136A800B78AC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BF60FDCD1B4136A800B78AC1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BF60FDD01B4136A800B78AC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		BF60FDD61B4136A800B78AC1 /* SchoolToolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SchoolToolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF60FDDB1B4136A800B78AC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF60FDDC1B4136A800B78AC1 /* SchoolToolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolToolTests.swift; sourceTree = "<group>"; };
+		BF60FE031B4137AF00B78AC1 /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLite.framework; sourceTree = "<group>"; };
+		BF60FE101B41387200B78AC1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		BF60FE121B41388200B78AC1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		BF60FE1A1B41390200B78AC1 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		BF60FE1C1B41390D00B78AC1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BF60FE1E1B41391600B78AC1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		BF60FE201B413A8C00B78AC1 /* DeviceUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceUtil.swift; sourceTree = "<group>"; };
+		BF60FE221B413ACD00B78AC1 /* LogUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogUtil.swift; sourceTree = "<group>"; };
+		BF60FE241B413B0200B78AC1 /* JsonUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonUtil.swift; sourceTree = "<group>"; };
+		BF60FE261B413B4700B78AC1 /* ThreadUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadUtil.swift; sourceTree = "<group>"; };
+		BF60FE281B413BCC00B78AC1 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		BF60FE2A1B413C2300B78AC1 /* CouchbaseUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouchbaseUtil.swift; sourceTree = "<group>"; };
+		BF60FE2D1B413D2700B78AC1 /* OCDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCDevice.h; sourceTree = "<group>"; };
+		BF60FE2E1B413D2700B78AC1 /* OCDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCDevice.m; sourceTree = "<group>"; };
+		BF60FE301B413D7D00B78AC1 /* SchoolTool-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SchoolTool-Bridging-Header.h"; sourceTree = "<group>"; };
+		BF60FE311B413DFC00B78AC1 /* DateUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
+		BF60FE331B413E4F00B78AC1 /* UserDefaultUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultUtil.swift; sourceTree = "<group>"; };
+		BF60FE351B413EA900B78AC1 /* AppContents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContents.swift; sourceTree = "<group>"; };
+		BF60FE371B413EC100B78AC1 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		BF60FE3E1B41448F00B78AC1 /* CouchbaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouchbaseTests.swift; sourceTree = "<group>"; };
+		BF60FE3F1B41448F00B78AC1 /* ThreadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF60FDBE1B4136A800B78AC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF60FE1F1B41391600B78AC1 /* Security.framework in Frameworks */,
+				BF60FE1D1B41390D00B78AC1 /* SystemConfiguration.framework in Frameworks */,
+				BF60FE1B1B41390200B78AC1 /* CFNetwork.framework in Frameworks */,
+				BF60FE131B41388200B78AC1 /* libsqlite3.dylib in Frameworks */,
+				BF60FE111B41387200B78AC1 /* libz.dylib in Frameworks */,
+				BF60FE041B4137AF00B78AC1 /* CouchbaseLite.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF60FDD31B4136A800B78AC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BF60FDB81B4136A800B78AC1 = {
+			isa = PBXGroup;
+			children = (
+				BF60FDC31B4136A800B78AC1 /* SchoolTool */,
+				BF60FDD91B4136A800B78AC1 /* SchoolToolTests */,
+				BF60FDC21B4136A800B78AC1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BF60FDC21B4136A800B78AC1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF60FDC11B4136A800B78AC1 /* SchoolTool.app */,
+				BF60FDD61B4136A800B78AC1 /* SchoolToolTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF60FDC31B4136A800B78AC1 /* SchoolTool */ = {
+			isa = PBXGroup;
+			children = (
+				BF60FDE61B41372D00B78AC1 /* application */,
+				BF60FDED1B41374800B78AC1 /* bus */,
+				BF60FDEE1B41374E00B78AC1 /* resource */,
+				BF60FDEF1B41375600B78AC1 /* system */,
+				BF60FDF31B41375C00B78AC1 /* utils */,
+				BF60FE021B41376200B78AC1 /* viewcontroller */,
+				BF60FDC61B4136A800B78AC1 /* AppDelegate.swift */,
+				BF60FE301B413D7D00B78AC1 /* SchoolTool-Bridging-Header.h */,
+				BF60FDC81B4136A800B78AC1 /* ViewController.swift */,
+				BF60FDCA1B4136A800B78AC1 /* Main.storyboard */,
+				BF60FDCD1B4136A800B78AC1 /* Images.xcassets */,
+				BF60FDCF1B4136A800B78AC1 /* LaunchScreen.xib */,
+				BF60FDC41B4136A800B78AC1 /* Supporting Files */,
+			);
+			path = SchoolTool;
+			sourceTree = "<group>";
+		};
+		BF60FDC41B4136A800B78AC1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF60FE051B4137B300B78AC1 /* framework */,
+				BF60FDC51B4136A800B78AC1 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BF60FDD91B4136A800B78AC1 /* SchoolToolTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF60FE3D1B41448F00B78AC1 /* utils */,
+				BF60FDDC1B4136A800B78AC1 /* SchoolToolTests.swift */,
+				BF60FDDA1B4136A800B78AC1 /* Supporting Files */,
+			);
+			path = SchoolToolTests;
+			sourceTree = "<group>";
+		};
+		BF60FDDA1B4136A800B78AC1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF60FDDB1B4136A800B78AC1 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BF60FDE61B41372D00B78AC1 /* application */ = {
+			isa = PBXGroup;
+			children = (
+				BF60FE351B413EA900B78AC1 /* AppContents.swift */,
+				BF60FE371B413EC100B78AC1 /* App.swift */,
+			);
+			path = application;
+			sourceTree = "<group>";
+		};
+		BF60FDED1B41374800B78AC1 /* bus */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = bus;
+			sourceTree = "<group>";
+		};
+		BF60FDEE1B41374E00B78AC1 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = resource;
+			sourceTree = "<group>";
+		};
+		BF60FDEF1B41375600B78AC1 /* system */ = {
+			isa = PBXGroup;
+			children = (
+				BF60FE2D1B413D2700B78AC1 /* OCDevice.h */,
+				BF60FE2E1B413D2700B78AC1 /* OCDevice.m */,
+			);
+			path = system;
+			sourceTree = "<group>";
+		};
+		BF60FDF31B41375C00B78AC1 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				BF60FE201B413A8C00B78AC1 /* DeviceUtil.swift */,
+				BF60FE221B413ACD00B78AC1 /* LogUtil.swift */,
+				BF60FE241B413B0200B78AC1 /* JsonUtil.swift */,
+				BF60FE261B413B4700B78AC1 /* ThreadUtil.swift */,
+				BF60FE281B413BCC00B78AC1 /* Date.swift */,
+				BF60FE2A1B413C2300B78AC1 /* CouchbaseUtil.swift */,
+				BF60FE311B413DFC00B78AC1 /* DateUtil.swift */,
+				BF60FE331B413E4F00B78AC1 /* UserDefaultUtil.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		BF60FE021B41376200B78AC1 /* viewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = viewcontroller;
+			sourceTree = "<group>";
+		};
+		BF60FE051B4137B300B78AC1 /* framework */ = {
+			isa = PBXGroup;
+			children = (
+				BF60FE1E1B41391600B78AC1 /* Security.framework */,
+				BF60FE1C1B41390D00B78AC1 /* SystemConfiguration.framework */,
+				BF60FE1A1B41390200B78AC1 /* CFNetwork.framework */,
+				BF60FE121B41388200B78AC1 /* libsqlite3.dylib */,
+				BF60FE101B41387200B78AC1 /* libz.dylib */,
+				BF60FE031B4137AF00B78AC1 /* CouchbaseLite.framework */,
+			);
+			name = framework;
+			sourceTree = "<group>";
+		};
+		BF60FE3D1B41448F00B78AC1 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				BF60FE3E1B41448F00B78AC1 /* CouchbaseTests.swift */,
+				BF60FE3F1B41448F00B78AC1 /* ThreadTests.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF60FDC01B4136A800B78AC1 /* SchoolTool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF60FDE01B4136A800B78AC1 /* Build configuration list for PBXNativeTarget "SchoolTool" */;
+			buildPhases = (
+				BF60FDBD1B4136A800B78AC1 /* Sources */,
+				BF60FDBE1B4136A800B78AC1 /* Frameworks */,
+				BF60FDBF1B4136A800B78AC1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SchoolTool;
+			productName = SchoolTool;
+			productReference = BF60FDC11B4136A800B78AC1 /* SchoolTool.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BF60FDD51B4136A800B78AC1 /* SchoolToolTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF60FDE31B4136A800B78AC1 /* Build configuration list for PBXNativeTarget "SchoolToolTests" */;
+			buildPhases = (
+				BF60FDD21B4136A800B78AC1 /* Sources */,
+				BF60FDD31B4136A800B78AC1 /* Frameworks */,
+				BF60FDD41B4136A800B78AC1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF60FDD81B4136A800B78AC1 /* PBXTargetDependency */,
+			);
+			name = SchoolToolTests;
+			productName = SchoolToolTests;
+			productReference = BF60FDD61B4136A800B78AC1 /* SchoolToolTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF60FDB91B4136A800B78AC1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = fruit;
+				TargetAttributes = {
+					BF60FDC01B4136A800B78AC1 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					BF60FDD51B4136A800B78AC1 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = BF60FDC01B4136A800B78AC1;
+					};
+				};
+			};
+			buildConfigurationList = BF60FDBC1B4136A800B78AC1 /* Build configuration list for PBXProject "SchoolTool" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BF60FDB81B4136A800B78AC1;
+			productRefGroup = BF60FDC21B4136A800B78AC1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF60FDC01B4136A800B78AC1 /* SchoolTool */,
+				BF60FDD51B4136A800B78AC1 /* SchoolToolTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF60FDBF1B4136A800B78AC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF60FDCC1B4136A800B78AC1 /* Main.storyboard in Resources */,
+				BF60FDD11B4136A800B78AC1 /* LaunchScreen.xib in Resources */,
+				BF60FDCE1B4136A800B78AC1 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF60FDD41B4136A800B78AC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF60FDBD1B4136A800B78AC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF60FE271B413B4700B78AC1 /* ThreadUtil.swift in Sources */,
+				BF60FE321B413DFC00B78AC1 /* DateUtil.swift in Sources */,
+				BF60FE251B413B0200B78AC1 /* JsonUtil.swift in Sources */,
+				BF60FE291B413BCC00B78AC1 /* Date.swift in Sources */,
+				BF60FE211B413A8C00B78AC1 /* DeviceUtil.swift in Sources */,
+				BF60FE231B413ACD00B78AC1 /* LogUtil.swift in Sources */,
+				BF60FE341B413E4F00B78AC1 /* UserDefaultUtil.swift in Sources */,
+				BF60FE361B413EA900B78AC1 /* AppContents.swift in Sources */,
+				BF60FE2B1B413C2300B78AC1 /* CouchbaseUtil.swift in Sources */,
+				BF60FDC91B4136A800B78AC1 /* ViewController.swift in Sources */,
+				BF60FE2F1B413D2700B78AC1 /* OCDevice.m in Sources */,
+				BF60FE381B413EC100B78AC1 /* App.swift in Sources */,
+				BF60FDC71B4136A800B78AC1 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF60FDD21B4136A800B78AC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF60FDDD1B4136A800B78AC1 /* SchoolToolTests.swift in Sources */,
+				BF60FE411B41448F00B78AC1 /* ThreadTests.swift in Sources */,
+				BF60FE401B41448F00B78AC1 /* CouchbaseTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF60FDD81B4136A800B78AC1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF60FDC01B4136A800B78AC1 /* SchoolTool */;
+			targetProxy = BF60FDD71B4136A800B78AC1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BF60FDCA1B4136A800B78AC1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF60FDCB1B4136A800B78AC1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BF60FDCF1B4136A800B78AC1 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF60FDD01B4136A800B78AC1 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BF60FDDE1B4136A800B78AC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		BF60FDDF1B4136A800B78AC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BF60FDE11B4136A800B78AC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SchoolTool",
+				);
+				INFOPLIST_FILE = SchoolTool/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SchoolTool/SchoolTool-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BF60FDE21B4136A800B78AC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SchoolTool",
+				);
+				INFOPLIST_FILE = SchoolTool/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SchoolTool/SchoolTool-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		BF60FDE41B4136A800B78AC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SchoolToolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SchoolTool.app/SchoolTool";
+			};
+			name = Debug;
+		};
+		BF60FDE51B4136A800B78AC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SchoolToolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SchoolTool.app/SchoolTool";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF60FDBC1B4136A800B78AC1 /* Build configuration list for PBXProject "SchoolTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF60FDDE1B4136A800B78AC1 /* Debug */,
+				BF60FDDF1B4136A800B78AC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF60FDE01B4136A800B78AC1 /* Build configuration list for PBXNativeTarget "SchoolTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF60FDE11B4136A800B78AC1 /* Debug */,
+				BF60FDE21B4136A800B78AC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BF60FDE31B4136A800B78AC1 /* Build configuration list for PBXNativeTarget "SchoolToolTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF60FDE41B4136A800B78AC1 /* Debug */,
+				BF60FDE51B4136A800B78AC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BF60FDB91B4136A800B78AC1 /* Project object */;
+}
