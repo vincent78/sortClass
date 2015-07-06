@@ -31,6 +31,7 @@
 		BF60FE381B413EC100B78AC1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60FE371B413EC100B78AC1 /* App.swift */; };
 		BF60FE401B41448F00B78AC1 /* CouchbaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60FE3E1B41448F00B78AC1 /* CouchbaseTests.swift */; };
 		BF60FE411B41448F00B78AC1 /* ThreadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60FE3F1B41448F00B78AC1 /* ThreadTests.swift */; };
+		BF92EF5C1B4A5C5F00833028 /* ObjectUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF92EF5B1B4A5C5F00833028 /* ObjectUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		BF60FE371B413EC100B78AC1 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		BF60FE3E1B41448F00B78AC1 /* CouchbaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouchbaseTests.swift; sourceTree = "<group>"; };
 		BF60FE3F1B41448F00B78AC1 /* ThreadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadTests.swift; sourceTree = "<group>"; };
+		BF92EF5B1B4A5C5F00833028 /* ObjectUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 				BF60FE2A1B413C2300B78AC1 /* CouchbaseUtil.swift */,
 				BF60FE311B413DFC00B78AC1 /* DateUtil.swift */,
 				BF60FE331B413E4F00B78AC1 /* UserDefaultUtil.swift */,
+				BF92EF5B1B4A5C5F00833028 /* ObjectUtil.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				BF60FE231B413ACD00B78AC1 /* LogUtil.swift in Sources */,
 				BF60FE341B413E4F00B78AC1 /* UserDefaultUtil.swift in Sources */,
 				BF60FE361B413EA900B78AC1 /* AppContents.swift in Sources */,
+				BF92EF5C1B4A5C5F00833028 /* ObjectUtil.swift in Sources */,
 				BF60FE2B1B413C2300B78AC1 /* CouchbaseUtil.swift in Sources */,
 				BF60FDC91B4136A800B78AC1 /* ViewController.swift in Sources */,
 				BF60FE2F1B413D2700B78AC1 /* OCDevice.m in Sources */,

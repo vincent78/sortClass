@@ -9,5 +9,7 @@
 import UIKit
 
 public class AppContents: NSObject {
+    
+
    
 }

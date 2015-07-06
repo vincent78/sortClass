@@ -59,25 +59,25 @@ class ThreadTests: XCTestCase {
     
     func testASync() {
         
-        ThreadUtil.gcd_Back_async(){
+        ThreadUtil.gcd_Back_ASync(){
             println("1")
         }
         
-        ThreadUtil.gcd_Back_async(){
+        ThreadUtil.gcd_Back_ASync(){
             println("2")
         }
         
-        ThreadUtil.gcd_Back_async(){
+        ThreadUtil.gcd_Back_ASync(){
             sleep(2)
             println("3")
         }
         println("invoke the thread 3")
         
-        ThreadUtil.gcd_Back_async(){
+        ThreadUtil.gcd_Back_ASync(){
             println("4")
         }
         
-        ThreadUtil.gcd_Back_async(){
+        ThreadUtil.gcd_Back_ASync(){
             println("5")
         }
         

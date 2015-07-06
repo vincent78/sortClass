@@ -24,7 +24,7 @@ class CouchbaseTests: XCTestCase {
         printDocumentCount()
         
         testDic = ["name":"serializeTest","age":23]
-        LogUtil.debug("testDic:\(testDic)", title: logTitle)
+        LogUtil.debug("testDic:\(testDic)")
         
     }
     
@@ -38,8 +38,9 @@ class CouchbaseTests: XCTestCase {
             XCTAssertNotNil(docId, "test doc created success!")
             testDic.updateValue(24, forKey: "age")
             testDic.updateValue("test", forKey: "remark")
-            LogUtil.debug("testDic:\(testDic)", title: logTitle)
+            LogUtil.debug("testDic:\(testDic)")
             XCTAssert(couchbaseUtil.updateDocById(docId, infoDic: testDic), "update the test success!")
+            printDocumentCount()
             XCTAssert(couchbaseUtil.deleteDocById(docId), "delete the test success!")
         } else {
             XCTFail("doc create failure!")
@@ -53,17 +54,12 @@ class CouchbaseTests: XCTestCase {
             [unowned self](name:String) -> () in
             for  i  in 0...1000 {
                 self.couchbaseUtil.createDoc(["obj":name,"seq":i,"timesnap":DateUtil.getTimesnap()])
-                LogUtil.info("do is end! \(name)", title: "test")
+                LogUtil.info("do is end! \(name)")
             }
         }
-        ThreadUtil.gcd_Back_async(){
+        ThreadUtil.gcd_Back_ASync(){
             threadMethod("thread1")
         }
-        
-        //        ThreadUtil.gcd_Back_async(){
-        //
-        //            threadMethod("thread2")
-        //        }
         
         sleep(10)
         
@@ -72,7 +68,7 @@ class CouchbaseTests: XCTestCase {
     
     
     func printDocumentCount() {
-        LogUtil.debug("the document count is \(couchbaseUtil.getDocumentCount())" ,title:logTitle)
+        LogUtil.debug("the document count is \(couchbaseUtil.getDocumentCount())")
     }
 
 }

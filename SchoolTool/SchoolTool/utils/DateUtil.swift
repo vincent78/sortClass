@@ -16,8 +16,15 @@ public class DateUtil: NSObject {
     :returns: <#return value description#>
     */
     public class func getTimesnap() -> String {
-        var retStr = Date().timeWithDefault()
-        return retStr
+        return Date().timeWithDefault()
+    }
+    
+    public class func getDatesnap() -> String {
+        return Date().stringWithFormat("yyyy-MM-dd")
+    }
+    
+    public class func getTimesnapWithoutDate() -> String {
+        return Date().stringWithFormat("HH:mm:ss")
     }
    
 }

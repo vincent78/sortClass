@@ -8,10 +8,13 @@
 
 import UIKit
 
+
+
 public class ThreadUtil: NSObject {
     
     //the serial queue
-    static let SerialQueue = dispatch_queue_create("system.sortClass.serial.queue", DISPATCH_QUEUE_SERIAL);
+    static let SerialDBQueue = dispatch_queue_create("system.sortClass.db.queue", DISPATCH_QUEUE_SERIAL);
+    static let AppBackgroudQueue = dispatch_queue_create("system.sortClass.app.queue", DISPATCH_QUEUE_SERIAL);
     
     //MARK: - 主线程
     
@@ -20,7 +23,7 @@ public class ThreadUtil: NSObject {
     
     :param: doBlock <#doBlock description#>
     */
-    public class func gcd_Main_async( doBlock: ()->Void){
+    public class func gcd_Main_ASync( doBlock: ()->Void){
         dispatch_async(dispatch_get_main_queue(),doBlock)
     }
     
@@ -31,12 +34,12 @@ public class ThreadUtil: NSObject {
     
     :param: doBlock <#doBlock description#>
     */
-    public  class func gcd_Main_sync( doBlock: ()->Void) {
+    public  class func gcd_Main_Sync( doBlock: ()->Void) {
         
         if (!NSThread.currentThread().isMainThread) {
             dispatch_sync(dispatch_get_main_queue(),doBlock)
         } else {
-            dispatch_async(dispatch_get_main_queue(), doBlock)
+            gcd_Back_ASync(doBlock)
         }
     }
     
@@ -49,7 +52,7 @@ public class ThreadUtil: NSObject {
     
     :param: doBlock <#doBlock description#>
     */
-    public class func gcd_Back_async(doBlock: ()->Void){
+    public class func gcd_Back_ASync(doBlock: ()->Void){
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
             , doBlock)
     }
@@ -60,19 +63,20 @@ public class ThreadUtil: NSObject {
     :param: doBlock <#doBlock description#>
     */
     public class func gcd_Back_sync(doBlock: ()->Void) {
-        dispatch_async(ThreadUtil.SerialQueue, doBlock)
+        dispatch_sync(AppBackgroudQueue, doBlock)
     }
     
-    public class func gcd_Back_Sync(waitToRun:Bool = true,doBlock:()->Void) {
-        if (!waitToRun) {
-            dispatch_async(ThreadUtil.SerialQueue, doBlock)
-        }
-        
+    public class func gcd_bd(doBlock:()->Void) {
+        dispatch_sync(SerialDBQueue, doBlock)
     }
     
     //MARK: - other
     
     public class func getThreadInfo() -> String {
         return "thread[\(NSThread.currentThread().description)]";
+    }
+    
+    public class func printThreadInfo() {
+        println("\(getThreadInfo())");
     }
 }
