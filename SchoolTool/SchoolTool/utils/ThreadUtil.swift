@@ -70,6 +70,18 @@ public class ThreadUtil: NSObject {
         dispatch_sync(SerialDBQueue, doBlock)
     }
     
+    
+    public class func gcd_doApply(size:size_t,doBlock:(Int)->Void) {
+        var queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//        var count = 20
+//        var doBlock = {
+//            (i:Int) -> Void in
+//            println("\(i)")
+//        }
+        dispatch_apply(size, queue, doBlock)
+    }
+    
+    
     //MARK: - other
     
     public class func getThreadInfo() -> String {

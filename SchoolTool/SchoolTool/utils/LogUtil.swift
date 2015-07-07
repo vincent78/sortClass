@@ -64,8 +64,8 @@ public class LogUtil: NSObject {
         if SYS_LOG_LEVEL.rawValue >= LogLevel.info.rawValue {
             if (!title.isEmpty) {
                 println("\(ESCAPE)fg255,255,0;----\(DateUtil.getTimesnapWithoutDate())---- \(title)\(RESET)")
-                println("\n")
             }
+            println("\(info)")
         }
     }
     
@@ -79,9 +79,7 @@ public class LogUtil: NSObject {
         if (SYS_LOG_LEVEL.rawValue >= LogLevel.debug.rawValue ) {
             if (!title.isEmpty) {
                 println("\(ESCAPE)fg255,0,255;====\(DateUtil.getTimesnapWithoutDate())==== \(title)\(RESET)")
-                println("\n")
             }
-            
             println("\(info)")
         }
     }
@@ -95,7 +93,6 @@ public class LogUtil: NSObject {
         if (SYS_LOG_LEVEL.rawValue >= LogLevel.error.rawValue){
             if (!title.isEmpty) {
                 println("\(ESCAPE)fg255,0,0;****\(DateUtil.getTimesnapWithoutDate())**** \(title)\(RESET)")
-                println("\n")
             }
             
             println("\(info)")

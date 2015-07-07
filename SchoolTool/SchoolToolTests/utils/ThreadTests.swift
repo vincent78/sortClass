@@ -22,6 +22,9 @@ class ThreadTests: XCTestCase {
         super.tearDown()
     }
     
+    /**
+    同步操作
+    */
     func testSync() {
         
         ThreadUtil.gcd_Back_sync(){
@@ -57,6 +60,9 @@ class ThreadTests: XCTestCase {
         XCTAssert(true, "Pass")
     }
     
+    /**
+    异步操作
+    */
     func testASync() {
         
         ThreadUtil.gcd_Back_ASync(){
@@ -85,4 +91,18 @@ class ThreadTests: XCTestCase {
         sleep(10)
         XCTAssert(true, "Pass")
     }
+    
+    /**
+    循环
+    */
+    func testCircle() {
+        var doBlock = {
+            (i:Int) -> Void in
+            println("\(i)")
+        }
+        ThreadUtil.gcd_doApply(20, doBlock:doBlock)
+    }
+    
+    
+    
 }
