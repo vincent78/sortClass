@@ -10,8 +10,8 @@ import UIKit
 
 public class ObjectUtil: NSObject {
     
-    public class func getClassName() -> String {
-        return NSStringFromClass( object_getClass(self))
+    public class func getClassName(obj: AnyObject!) -> String {
+        return NSStringFromClass( object_getClass(obj))
     }
    
 }

@@ -70,7 +70,7 @@ public class LogUtil: NSObject {
     }
     
     public class func info(info:String) {
-        var title = ObjectUtil.getClassName()
+        var title = ""
         LogUtil.info(info, title: title)
     }
     
@@ -100,7 +100,7 @@ public class LogUtil: NSObject {
     }
     
     public class func error(info:String) {
-        var title = ObjectUtil.getClassName()
+        var title = ""
         LogUtil.error(info, title: title)
     }
     
@@ -113,7 +113,7 @@ public class LogUtil: NSObject {
     }
     
     public class func printError(error:NSErrorPointer ){
-        var title = ObjectUtil.getClassName()
+        var title = ""
         LogUtil.printError(error ,title: title)
     }
     

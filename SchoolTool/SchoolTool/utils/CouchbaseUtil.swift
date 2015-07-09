@@ -17,7 +17,7 @@ public class CouchbaseUtil: NSObject {
             static var instance:CouchbaseUtil? = nil
         }
         dispatch_once(&Singleton.predicate,{
-            LogUtil.debug("",title: ObjectUtil.getClassName() + " | " + __FUNCTION__)
+            LogUtil.debug("",title: ObjectUtil.getClassName(self) + " | " + __FUNCTION__)
             Singleton.instance = CouchbaseUtil()
             
         })
@@ -33,17 +33,15 @@ public class CouchbaseUtil: NSObject {
     
     //MARK: - lifecycle
     override init(){
-        LogUtil.debug("",title: ObjectUtil.getClassName() + " | " + __FUNCTION__)
+
         dbManger = CBLManager.sharedInstance()
         super.init()
         
         var error : NSError?
         if (CBLManager.isValidDatabaseName(defaultDBName)){
-        
-            ThreadUtil.gcd_bd(){
-                [unowned self] in
-                self.database = self.dbManger.databaseNamed(self.defaultDBName, error: &error)
-            }
+
+            self.database = self.dbManger.databaseNamed(self.defaultDBName, error: &error)
+
             
             if (error != nil) {
                 LogUtil.printError(&error)
@@ -64,17 +62,15 @@ public class CouchbaseUtil: NSObject {
     
     public func createDoc(infoDic:Dictionary<NSObject , AnyObject>) -> String?
     {
-        LogUtil.debug("",title: ObjectUtil.getClassName() + " | " + __FUNCTION__)
+        LogUtil.debug("",title: ObjectUtil.getClassName(self) + " | " + __FUNCTION__)
+        LogUtil.debug("run in \(NSThread.currentThread().description)")
         
         var docId:String!
-        var error:NSError?
-        
-        
-        var doc : CBLDocument? 
-        LogUtil.debug("\(NSThread.currentThread().description)")
-        ThreadUtil.gcd_bd(){
-            [unowned self] in
-            LogUtil.debug("\(NSThread.currentThread().description)")
+        ThreadUtil.gcd_db({
+            ()->Void in
+            LogUtil.debug("run in gcd_db thread: \(NSThread.currentThread().description)")
+            var error:NSError?
+            var doc : CBLDocument?
             doc = self.database.createDocument()
             var newRevision =  doc!.putProperties(infoDic, error: &error)
             if (error != nil) {
@@ -84,7 +80,8 @@ public class CouchbaseUtil: NSObject {
                 docId = doc!.documentID
                 doc = nil
             }
-        }
+        })
+        LogUtil.debug(" the create oper is end!")
         
         return docId;
         
@@ -92,7 +89,7 @@ public class CouchbaseUtil: NSObject {
     
     public func loadDoc(id:String) -> CBLDocument?
     {
-        LogUtil.debug("",title: ObjectUtil.getClassName() + " | " + __FUNCTION__)
+        LogUtil.debug("",title: ObjectUtil.getClassName(self) + " | " + __FUNCTION__)
         
         var doc = database.documentWithID(id)
         if (doc.isDeleted) {
@@ -105,21 +102,21 @@ public class CouchbaseUtil: NSObject {
     
     public func loadDocIncludeDeleted(id:String) -> CBLDocument?
     {
-        LogUtil.debug("",title: ObjectUtil.getClassName() + " | " + __FUNCTION__)
+        LogUtil.debug("",title: ObjectUtil.getClassName(self) + " | " + __FUNCTION__)
         
         return database.documentWithID(id)
     }
     
     func loadDocProperties(id:String) -> Dictionary<NSObject,AnyObject>?
     {
-        LogUtil.debug("",title: ObjectUtil.getClassName() + " | " + __FUNCTION__)
+        LogUtil.debug("",title: ObjectUtil.getClassName(self) + " | " + __FUNCTION__)
         
         return loadDoc(id)?.properties
     }
     
     
     public func updateDocById(id:String, infoDic:Dictionary<NSObject,AnyObject>) -> Bool {
-        LogUtil.debug("",title: ObjectUtil.getClassName() + " | " + __FUNCTION__)
+        LogUtil.debug("",title: ObjectUtil.getClassName(self) + " | " + __FUNCTION__)
         
         if var doc = loadDoc(id) {
             return updateDoc(doc, infoDic: infoDic)
@@ -131,7 +128,7 @@ public class CouchbaseUtil: NSObject {
     
     
     public func updateDoc(var doc :CBLDocument! ,infoDic:Dictionary<NSObject,AnyObject>) -> Bool {
-        LogUtil.debug("",title: ObjectUtil.getClassName() + " | " + __FUNCTION__)
+        LogUtil.debug("",title: ObjectUtil.getClassName(self) + " | " + __FUNCTION__)
         
         var error:NSError?
         var actDic = Dictionary<NSObject,AnyObject>()
@@ -159,7 +156,7 @@ public class CouchbaseUtil: NSObject {
     }
     
     public func deleteDoc(doc :CBLDocument ) -> Bool {
-        LogUtil.debug("",title: ObjectUtil.getClassName() + " | " + __FUNCTION__)
+        LogUtil.debug("",title: ObjectUtil.getClassName(self) + " | " + __FUNCTION__)
         
         if (doc.isDeleted) {
             LogUtil.debug("doc[\(doc.documentID)] has deleted!")
@@ -182,7 +179,7 @@ public class CouchbaseUtil: NSObject {
     
     public func deleteDocById(id:String) ->Bool{
         
-        LogUtil.debug("",title: ObjectUtil.getClassName() + " | " + __FUNCTION__)
+        LogUtil.debug("",title: ObjectUtil.getClassName(self) + " | " + __FUNCTION__)
         
         if var doc = loadDoc(id) {
             return deleteDoc(doc)
@@ -198,7 +195,7 @@ public class CouchbaseUtil: NSObject {
     
     //MARK: - db info
     public func getDocumentCount() -> UInt {
-        LogUtil.debug("",title: ObjectUtil.getClassName() + " | " + __FUNCTION__)
+        LogUtil.debug("",title: ObjectUtil.getClassName(self) + " | " + __FUNCTION__)
         return database.documentCount
     }
 }

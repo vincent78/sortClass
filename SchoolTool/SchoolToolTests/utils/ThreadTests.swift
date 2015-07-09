@@ -15,82 +15,78 @@ class ThreadTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        println("\n\n\n")
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+        
+        println("\n\n\n")
     }
     
-    /**
-    同步操作
-    */
-    func testSync() {
+    
+
+    func testDoASyncInSub() {
         
-        ThreadUtil.gcd_Back_sync(){
-            sleep(2);
-            LogUtil.info("task 1 ", title: "\(ThreadUtil.getThreadInfo())");
-        }
-        LogUtil.info("the 1 task has passed", title: "\(ThreadUtil.getThreadInfo())");
+
         
-        ThreadUtil.gcd_Back_sync(){
-            LogUtil.info("task 2 \(ThreadUtil.getThreadInfo())", title: "\(ThreadUtil.getThreadInfo())");
+        var doBlock = {
+            () -> Void in
+            println("the method thread \(ThreadUtil.getThreadInfo())")
         }
         
-        LogUtil.info("the 2 task has passed", title: "\(ThreadUtil.getThreadInfo())");
+        ThreadUtil.doASyncInSub(doBlock)
         
-        ThreadUtil.gcd_Back_sync(){
-            sleep(5);
-            LogUtil.info("task 3 \(ThreadUtil.getThreadInfo())", title: "\(ThreadUtil.getThreadInfo())");
+//        sleep(2)
+        LogUtil.debug("the end1.")
+        
+        ThreadUtil.doASyncInSub() {
+            ()->Void in
+            println("the invoke subThread \(ThreadUtil.getThreadInfo())")
+            ThreadUtil.doASyncInSub(doBlock)
+//            sleep(2)
+            LogUtil.debug("invoke end.")
         }
-        LogUtil.info("the 3 task has passed", title: "\(ThreadUtil.getThreadInfo())");
+//        sleep(1)
+        LogUtil.debug("the end2.")
         
-        ThreadUtil.gcd_Back_sync(){
-            LogUtil.info("task 4", title: "\(ThreadUtil.getThreadInfo())");
-        }
-        LogUtil.info("the 4 task has passed", title: "\(ThreadUtil.getThreadInfo())");
+        sleep(4)
+
         
-        ThreadUtil.gcd_Back_sync(){
-            LogUtil.info("task 5", title: "\(ThreadUtil.getThreadInfo())");
-        }
-        
-        LogUtil.info("the 5 task has passed", title: "\(ThreadUtil.getThreadInfo())");
-        
-        sleep(10)
-        XCTAssert(true, "Pass")
     }
     
-    /**
-    异步操作
-    */
-    func testASync() {
+    func testDoSyncInSub() {
         
-        ThreadUtil.gcd_Back_ASync(){
-            println("1")
+        var doBlock = {
+            () -> Void in
+            println("thread: \(ThreadUtil.getThreadInfo())")
+        }
+        ThreadUtil.doSyncInSub(doBlock)
+        LogUtil.debug("the end1.")
+        
+        
+        //嵌套调用
+        ThreadUtil.doSyncInSub(){
+            ThreadUtil.printThreadInfo()
+            ThreadUtil.doSyncInSub(doBlock)
         }
         
-        ThreadUtil.gcd_Back_ASync(){
-            println("2")
-        }
         
-        ThreadUtil.gcd_Back_ASync(){
-            sleep(2)
-            println("3")
-        }
-        println("invoke the thread 3")
+        LogUtil.debug("the end2.")
         
-        ThreadUtil.gcd_Back_ASync(){
-            println("4")
-        }
         
-        ThreadUtil.gcd_Back_ASync(){
-            println("5")
+        for i in 1...10 {
+            ThreadUtil.doSyncInSub() {
+                println("thread: \(ThreadUtil.getThreadInfo()) the order:\(i) ")
+            }
         }
-        
-        println("wait")
-        sleep(10)
-        XCTAssert(true, "Pass")
+        LogUtil.debug("the end3.")
+
     }
+    
+    
     
     /**
     循环
@@ -100,7 +96,7 @@ class ThreadTests: XCTestCase {
             (i:Int) -> Void in
             println("\(i)")
         }
-        ThreadUtil.gcd_doApply(20, doBlock:doBlock)
+        ThreadUtil.gcd_doCircle(9, doBlock:doBlock)
     }
     
     

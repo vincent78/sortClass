@@ -21,7 +21,7 @@ class CouchbaseTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        printDocumentCount()
+//        printDocumentCount()
         
         testDic = ["name":"serializeTest","age":23]
         LogUtil.debug("testDic:\(testDic)")
@@ -30,7 +30,7 @@ class CouchbaseTests: XCTestCase {
     
     override func tearDown() {
         super.tearDown()
-        printDocumentCount()
+//        printDocumentCount()
     }
     
     func testCRUD() {
@@ -48,21 +48,45 @@ class CouchbaseTests: XCTestCase {
     }
     
     
-    func testMutliThread() {
+    func testRunInSubThread() {
+
+//        ThreadUtil.gcd_Back_Sync({
+//            LogUtil.debug("the block run in \(ThreadUtil.printThreadInfo())")
+//            CouchbaseUtil.shareInstance().createDoc(["obj":"testobj333","seq":3,"timesnap":DateUtil.getTimesnap()])
+//        })
         
-        let threadMethod = {
-            [unowned self](name:String) -> () in
-            for  i  in 0...1000 {
-                self.couchbaseUtil.createDoc(["obj":name,"seq":i,"timesnap":DateUtil.getTimesnap()])
-                LogUtil.info("do is end! \(name)")
-            }
-        }
         ThreadUtil.gcd_Back_ASync(){
-            threadMethod("thread1")
+            CouchbaseUtil.shareInstance().createDoc(["obj":"testobj333","seq":3,"timesnap":DateUtil.getTimesnap()])
         }
         
-        sleep(10)
         
+        sleep(5)
+        LogUtil.info("the oper is end.")
+    }
+    
+    
+    func testMutiThread() {
+                let threadMethod = {
+                    [unowned self](name:String) -> () in
+                    for  i  in 0...10 {
+                        self.couchbaseUtil.createDoc(["obj":name,"seq":i,"timesnap":DateUtil.getTimesnap()])
+                        LogUtil.info("do is end! \(name)")
+                    }
+                }
+                ThreadUtil.gcd_Back_ASync(){
+                    threadMethod("thread1")
+                }
+            sleep(10)
+        
+//        let threadMethod = {
+//            [unowned self] (i:Int) -> Void in
+//            ThreadUtil.gcd_bd({
+//            () -> Void in
+//            self.couchbaseUtil.createDoc(["obj":"testdd","seq":i,"timesnap":DateUtil.getTimesnap()])
+//            })
+//        }
+//        
+//        ThreadUtil.gcd_doCircle(10, doBlock: threadMethod)
     }
     
     

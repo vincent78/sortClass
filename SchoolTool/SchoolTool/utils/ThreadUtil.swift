@@ -13,8 +13,10 @@ import UIKit
 public class ThreadUtil: NSObject {
     
     //the serial queue
-    static let SerialDBQueue = dispatch_queue_create("system.sortClass.db.queue", DISPATCH_QUEUE_SERIAL);
-    static let AppBackgroudQueue = dispatch_queue_create("system.sortClass.app.queue", DISPATCH_QUEUE_SERIAL);
+    static let dbQueue = dispatch_queue_create("system.sortClass.db.queue", DISPATCH_QUEUE_SERIAL);
+    static let backQueue = dispatch_queue_create("system.sortClass.app.queue", DISPATCH_QUEUE_SERIAL);
+    
+    static let conQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     
     //MARK: - 主线程
     
@@ -62,22 +64,34 @@ public class ThreadUtil: NSObject {
     
     :param: doBlock <#doBlock description#>
     */
-    public class func gcd_Back_sync(doBlock: ()->Void) {
-        dispatch_sync(AppBackgroudQueue, doBlock)
-    }
-    
-    public class func gcd_bd(doBlock:()->Void) {
-        dispatch_sync(SerialDBQueue, doBlock)
+    public class func gcd_Back_Sync(doBlock: ()->Void) {
+        dispatch_async(backQueue, doBlock)
     }
     
     
-    public class func gcd_doApply(size:size_t,doBlock:(Int)->Void) {
+    
+    
+    
+    
+    
+    
+    public class func gcd_app(doBlock:() -> Void) {
+        dispatch_sync(backQueue, doBlock)
+    }
+    
+    public class func gcd_db(doBlock:()->Void) {
+        if (NSThread.currentThread().isMainThread) {
+//            LogUtil.debug("do async")
+            doBlock()
+        } else {
+//            LogUtil.debug("do sync")
+            dispatch_sync(dispatch_get_main_queue(), doBlock)
+        }
+    }
+    
+    
+    public class func gcd_doCircle(size:size_t,doBlock:(Int)->Void) {
         var queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-//        var count = 20
-//        var doBlock = {
-//            (i:Int) -> Void in
-//            println("\(i)")
-//        }
         dispatch_apply(size, queue, doBlock)
     }
     
@@ -85,10 +99,48 @@ public class ThreadUtil: NSObject {
     //MARK: - other
     
     public class func getThreadInfo() -> String {
-        return "thread[\(NSThread.currentThread().description)]";
+        return "isMain(\(isMain())) [\(NSThread.currentThread().description)]";
     }
     
     public class func printThreadInfo() {
         println("\(getThreadInfo())");
     }
+    
+    
+    
+    
+    //MARK: - 整理后的方法
+    
+    /// 在子线程中同步执行block
+    public class func doSyncInSub( doBlock:()->Void) {
+        var semaphore = dispatch_semaphore_create(0)
+        dispatch_async(conQueue,{
+            () -> Void in
+            doBlock()
+            dispatch_semaphore_signal(semaphore)
+        })
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
+    }
+    
+    /// 在子线路中异步执行block
+    public class func doASyncInSub( doBlock:()->Void) {
+        dispatch_async(conQueue,doBlock)
+    }
+    
+    /// 在主线程中同步执行block
+    public class func doSyncInMain( doBlock:()->Void) {
+        
+    }
+    
+    /// 在主线程中异步执行block
+    public class func doASyncInMain( doBlock:()->Void) {
+        
+    }
+    
+    
+    /// 是否为主线程
+    public class func isMain() -> Bool {
+        return NSThread.currentThread().isMainThread
+    }
+
 }
