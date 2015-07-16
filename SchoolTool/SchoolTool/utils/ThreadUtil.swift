@@ -81,10 +81,8 @@ public class ThreadUtil: NSObject {
     
     public class func gcd_db(doBlock:()->Void) {
         if (NSThread.currentThread().isMainThread) {
-//            LogUtil.debug("do async")
             doBlock()
         } else {
-//            LogUtil.debug("do sync")
             dispatch_sync(dispatch_get_main_queue(), doBlock)
         }
     }
@@ -129,12 +127,23 @@ public class ThreadUtil: NSObject {
     
     /// 在主线程中同步执行block
     public class func doSyncInMain( doBlock:()->Void) {
-        
+        if ThreadUtil.isMain() {
+            doBlock()
+        } else {
+//            var semaphore = dispatch_semaphore_create(0)
+//            dispatch_async(dispatch_get_main_queue()) {
+//                doBlock()
+//                dispatch_semaphore_signal(semaphore)
+//            }
+//            dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
+            
+            dispatch_sync(dispatch_get_main_queue(),doBlock)
+        }
     }
     
     /// 在主线程中异步执行block
     public class func doASyncInMain( doBlock:()->Void) {
-        
+        dispatch_async(dispatch_get_main_queue(), doBlock)
     }
     
     
