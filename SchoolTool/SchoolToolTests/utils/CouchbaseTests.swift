@@ -90,6 +90,19 @@ class CouchbaseTests: XCTestCase {
     }
     
     
+    func testSetupTeacher() {
+        
+        
+        if var docId = couchbaseUtil.createDoc(testDic) {
+            
+        } else {
+            XCTFail("doc create failure!")
+        }
+
+        
+    }
+    
+    
     
     func printDocumentCount() {
         LogUtil.debug("the document count is \(couchbaseUtil.getDocumentCount())")
