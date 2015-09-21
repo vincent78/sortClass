@@ -54,7 +54,7 @@ struct Date {
 // MARK: - 输出
 extension Date {
     func stringWithFormat(_ format:String = "yyyy-MM-dd HH:mm:ss") -> String {
-        var formatter = NSDateFormatter()
+        let formatter = NSDateFormatter()
         formatter.dateFormat = format
         return formatter.stringFromDate(NSDate(timeIntervalSince1970: timeInterval))
     }
@@ -87,20 +87,28 @@ extension Date {
         let (year, month, day) = getDay()
         let (hour, minute, second) = getTime()
         let era = year / 100
-        if let date = NSCalendar.currentCalendar().dateWithEra(era, year: year, month: month + m, day: day, hour: hour, minute: minute, second: second, nanosecond: 0) {
-            timeInterval = date.timeIntervalSince1970
+        if #available(iOS 8.0, *) {
+            if let date = NSCalendar.currentCalendar().dateWithEra(era, year: year, month: month + m, day: day, hour: hour, minute: minute, second: second, nanosecond: 0) {
+                timeInterval = date.timeIntervalSince1970
+            } else {
+                timeInterval += Double(m) * 30 * 24 * 3600
+            }
         } else {
-            timeInterval += Double(m) * 30 * 24 * 3600
+            // Fallback on earlier versions
         }
     }
     mutating func addYear(year y:Int) {
         let (year, month, day) = getDay()
         let (hour, minute, second) = getTime()
         let era = year / 100
-        if let date = NSCalendar.currentCalendar().dateWithEra(era, year: year + y, month: month, day: day, hour: hour, minute: minute, second: second, nanosecond: 0) {
-            timeInterval = date.timeIntervalSince1970
+        if #available(iOS 8.0, *) {
+            if let date = NSCalendar.currentCalendar().dateWithEra(era, year: year + y, month: month, day: day, hour: hour, minute: minute, second: second, nanosecond: 0) {
+                timeInterval = date.timeIntervalSince1970
+            } else {
+                timeInterval += Double(y) * 365 * 24 * 3600
+            }
         } else {
-            timeInterval += Double(y) * 365 * 24 * 3600
+            // Fallback on earlier versions
         }
     }
 }
@@ -119,7 +127,11 @@ extension Date {
     func getDay() -> (year:Int, month:Int, day:Int) {
         var year:Int = 0, month:Int = 0, day:Int = 0
         let date = NSDate(timeIntervalSince1970: timeInterval)
-        NSCalendar.currentCalendar().getEra(nil, year: &year, month: &month, day: &day, fromDate: date)
+        if #available(iOS 8.0, *) {
+            NSCalendar.currentCalendar().getEra(nil, year: &year, month: &month, day: &day, fromDate: date)
+        } else {
+            // Fallback on earlier versions
+        }
         return (year, month, day)
     }
     
@@ -127,7 +139,11 @@ extension Date {
     func getTime() -> (hour:Int, minute:Int, second:Int) {
         var hour:Int = 0, minute:Int = 0, second:Int = 0
         let date = NSDate(timeIntervalSince1970: timeInterval)
-        NSCalendar.currentCalendar().getHour(&hour, minute: &minute, second: &second, nanosecond: nil, fromDate: date)
+        if #available(iOS 8.0, *) {
+            NSCalendar.currentCalendar().getHour(&hour, minute: &minute, second: &second, nanosecond: nil, fromDate: date)
+        } else {
+            // Fallback on earlier versions
+        }
         return (hour, minute, second)
     }
 }
@@ -136,8 +152,12 @@ extension Date {
 extension Date {
     init(year:Int, month:Int = 1, day:Int = 1, hour:Int = 0, minute:Int = 0, second:Int = 0) {
         let era = year / 100
-        if let date = NSCalendar.currentCalendar().dateWithEra(era, year: year, month: month, day: day, hour: hour, minute: minute, second: second, nanosecond: 0) {
-            timeInterval = date.timeIntervalSince1970
+        if #available(iOS 8.0, *) {
+            if let date = NSCalendar.currentCalendar().dateWithEra(era, year: year, month: month, day: day, hour: hour, minute: minute, second: second, nanosecond: 0) {
+                timeInterval = date.timeIntervalSince1970
+            }
+        } else {
+            // Fallback on earlier versions
         }
     }
 }
@@ -161,7 +181,7 @@ extension Date {
 
 extension Date {
     init(_ v: String, style: NSDateFormatterStyle = .NoStyle) {
-        var formatter = NSDateFormatter()
+        let formatter = NSDateFormatter()
         formatter.dateStyle = style
         if let date = formatter.dateFromString(v) {
             self.timeInterval = date.timeIntervalSince1970
@@ -169,7 +189,7 @@ extension Date {
     }
     
     init(_ v: String, dateFormat:String = "yyyy-MM-dd HH:mm:ss") {
-        var formatter = NSDateFormatter()
+        let formatter = NSDateFormatter()
         formatter.dateFormat = dateFormat
         if let date = formatter.dateFromString(v) {
             self.timeInterval = date.timeIntervalSince1970
@@ -196,12 +216,12 @@ extension Date {
 }
 
 // MARK: - 可以直接输出
-extension Date : Printable {
+extension Date : CustomStringConvertible {
     var description: String {
         return NSDate(timeIntervalSince1970: timeInterval).description
     }
 }
-extension Date : DebugPrintable {
+extension Date : CustomDebugStringConvertible {
     var debugDescription: String {
         return NSDate(timeIntervalSince1970: timeInterval).debugDescription
     }
@@ -222,11 +242,11 @@ extension Date : DebugPrintable {
 //}
 
 // MARK: - 可反射
-extension Date : Reflectable {
-    func getMirror() -> MirrorType {
-        return reflect(self)
-    }
-}
+//extension Date : Reflectable {
+//    func getMirror() -> MirrorType {
+//        return reflect(self)
+//    }
+//}
 
 // MARK: - 可哈希
 extension Date : Hashable {

@@ -32,7 +32,7 @@ public class DeviceUtil: NSObject {
         //获取设备本地模型
         infoDic["localizedModel"] = UIDevice.currentDevice().localizedModel
         //唯一标识
-        infoDic["identifierForVendor"]=UIDevice.currentDevice().identifierForVendor.UUIDString
+        infoDic["identifierForVendor"]=UIDevice.currentDevice().identifierForVendor!.UUIDString
         //ip地址
         infoDic["ipAddr"] = OCDevice.getIPAddress()
 //        infoDic["ipAddr"] = ""
@@ -45,7 +45,7 @@ public class DeviceUtil: NSObject {
     /**
     获取屏幕的宽度
     
-    :returns: <#return value description#>
+    - returns: <#return value description#>
     */
     public class func getWidth() -> CGFloat{
         return UIScreen.mainScreen().bounds.width
@@ -54,7 +54,7 @@ public class DeviceUtil: NSObject {
     /**
     获取屏幕的高度
     
-    :returns: <#return value description#>
+    - returns: <#return value description#>
     */
     public class func getHeight() -> CGFloat{
         return UIScreen.mainScreen().bounds.height

@@ -14,16 +14,16 @@ public class JsonUtil: NSObject {
     
     返回JSON字符串
     
-    :param: obj <#obj description#>
+    - parameter obj: <#obj description#>
     
-    :returns: <#return value description#>
+    - returns: <#return value description#>
     */
     public class func toJSONStr(obj: AnyObject)->String{
         
         if (NSJSONSerialization.isValidJSONObject(obj))
         {
-            var data = NSJSONSerialization.dataWithJSONObject(obj, options: NSJSONWritingOptions.PrettyPrinted, error: nil)
-            var jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            let data = try? NSJSONSerialization.dataWithJSONObject(obj, options: NSJSONWritingOptions.PrettyPrinted)
+            let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
             return jsonStr! as String
         }
         else

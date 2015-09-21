@@ -77,7 +77,7 @@ class App: NSObject {
     /**
     获取当前系统信息
     
-    :returns: <#return value description#>
+    - returns: <#return value description#>
     */
     class func getInfoStr() -> Dictionary<String,AnyObject>{
         return App.shareInstance().info;
@@ -94,7 +94,7 @@ class App: NSObject {
     /**
     获取当前APP的版本
     
-    :returns: <#return value description#>
+    - returns: <#return value description#>
     */
     class func getVersion() -> String{
         return App.shareInstance().info["CFBundleVersion"] as! String
@@ -103,25 +103,27 @@ class App: NSObject {
     //MARK: - 路径相关
     
     class func getAppPath() ->String{
-        if var homePath = NSHomeDirectory(){
-            return homePath
-        } else {
-            return getDocPath().stringByDeletingLastPathComponent
-        }
+        return NSHomeDirectory()
+//        if var homePath = NSHomeDirectory(){
+//            return homePath
+//        } else {
+//            return getDocPath().stringByDeletingLastPathComponent
+//        }
+//        return "ss"
     }
     
     class func getDocPath() -> String{
         var pathInfo = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory
             ,NSSearchPathDomainMask.UserDomainMask,true) as Array
         
-        return pathInfo[0] as! String
+        return pathInfo[0] 
     }
     
     class func getCachePath() -> String{
         var pathInfo = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory
             ,NSSearchPathDomainMask.UserDomainMask,true) as Array
         
-        return pathInfo[0] as! String
+        return pathInfo[0] 
     }
     
     class func getTmpPath() -> String{
@@ -132,7 +134,7 @@ class App: NSObject {
         var pathInfo = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.LibraryDirectory
             ,NSSearchPathDomainMask.UserDomainMask,true) as Array
         
-        return pathInfo[0] as! String
+        return pathInfo[0] 
     }
    
 }

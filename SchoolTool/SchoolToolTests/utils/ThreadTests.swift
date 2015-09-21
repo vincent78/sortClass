@@ -16,14 +16,14 @@ class ThreadTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
-        println("\n\n\n")
+        print("\n\n\n")
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
         
-        println("\n\n\n")
+        print("\n\n\n")
     }
     
     
@@ -34,7 +34,7 @@ class ThreadTests: XCTestCase {
         
         var doBlock = {
             () -> Void in
-            println("the method thread \(ThreadUtil.getThreadInfo())")
+            print("the method thread \(ThreadUtil.getThreadInfo())")
         }
         
         ThreadUtil.doASyncInSub(doBlock)
@@ -44,7 +44,7 @@ class ThreadTests: XCTestCase {
         
         ThreadUtil.doASyncInSub() {
             ()->Void in
-            println("the invoke subThread \(ThreadUtil.getThreadInfo())")
+            print("the invoke subThread \(ThreadUtil.getThreadInfo())")
             ThreadUtil.doASyncInSub(doBlock)
 //            sleep(2)
             LogUtil.debug("invoke end.")
@@ -61,7 +61,7 @@ class ThreadTests: XCTestCase {
         
         var doBlock = {
             () -> Void in
-            println("thread: \(ThreadUtil.getThreadInfo())")
+            print("thread: \(ThreadUtil.getThreadInfo())")
         }
         ThreadUtil.doSyncInSub(doBlock)
         LogUtil.debug("the end1.")
@@ -79,7 +79,7 @@ class ThreadTests: XCTestCase {
         
         for i in 1...10 {
             ThreadUtil.doSyncInSub() {
-                println("thread: \(ThreadUtil.getThreadInfo()) the order:\(i) ")
+                print("thread: \(ThreadUtil.getThreadInfo()) the order:\(i) ")
             }
         }
         LogUtil.debug("the end3.")
@@ -94,7 +94,7 @@ class ThreadTests: XCTestCase {
     func testCircle() {
         var doBlock = {
             (i:Int) -> Void in
-            println("\(i)")
+            print("\(i)")
         }
         ThreadUtil.gcd_doCircle(9, doBlock:doBlock)
     }

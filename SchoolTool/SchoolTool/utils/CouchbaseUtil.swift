@@ -40,7 +40,12 @@ public class CouchbaseUtil: NSObject {
         var error : NSError?
         if (CBLManager.isValidDatabaseName(defaultDBName)){
 
-            self.database = self.dbManger.databaseNamed(self.defaultDBName, error: &error)
+            do {
+                self.database = try self.dbManger.databaseNamed(self.defaultDBName)
+            } catch let error1 as NSError {
+                error = error1
+                self.database = nil
+            }
 
             
             if (error != nil) {
@@ -72,7 +77,15 @@ public class CouchbaseUtil: NSObject {
             var error:NSError?
             var doc : CBLDocument?
             doc = self.database.createDocument()
-            var newRevision =  doc!.putProperties(infoDic, error: &error)
+            var newRevision: CBLSavedRevision!
+            do {
+                newRevision = try doc!.putProperties(infoDic)
+            } catch let error1 as NSError {
+                error = error1
+                newRevision = nil
+            } catch {
+                fatalError()
+            }
             if (error != nil) {
                 LogUtil.printError(&error)
             } else {
@@ -91,7 +104,7 @@ public class CouchbaseUtil: NSObject {
     {
         LogUtil.debug("",title: ObjectUtil.getClassName(self) + " | " + __FUNCTION__)
         
-        var doc = database.documentWithID(id)
+        let doc = database.documentWithID(id)
         if (doc.isDeleted) {
             LogUtil.debug("doc[\(id)] is deleted!")
             return nil;
@@ -118,7 +131,7 @@ public class CouchbaseUtil: NSObject {
     public func updateDocById(id:String, infoDic:Dictionary<NSObject,AnyObject>) -> Bool {
         LogUtil.debug("",title: ObjectUtil.getClassName(self) + " | " + __FUNCTION__)
         
-        if var doc = loadDoc(id) {
+        if let doc = loadDoc(id) {
             return updateDoc(doc, infoDic: infoDic)
         } else {
             LogUtil.error("doc[\(id) is not exist!]")
@@ -127,13 +140,13 @@ public class CouchbaseUtil: NSObject {
     }
     
     
-    public func updateDoc(var doc :CBLDocument! ,infoDic:Dictionary<NSObject,AnyObject>) -> Bool {
+    public func updateDoc(doc :CBLDocument! ,infoDic:Dictionary<NSObject,AnyObject>) -> Bool {
         LogUtil.debug("",title: ObjectUtil.getClassName(self) + " | " + __FUNCTION__)
         
         var error:NSError?
         var actDic = Dictionary<NSObject,AnyObject>()
         
-        if var revId = doc.currentRevisionID {
+        if let revId = doc.currentRevisionID {
             for (key,value) in infoDic {
                 actDic[key] = value
             }
@@ -141,7 +154,13 @@ public class CouchbaseUtil: NSObject {
         }
         
         
-        var newRev = doc.putProperties(actDic, error: &error)
+        var newRev: CBLSavedRevision!
+        do {
+            newRev = try doc.putProperties(actDic)
+        } catch let error1 as NSError {
+            error = error1
+            newRev = nil
+        }
         if (newRev != nil) {
             LogUtil.debug("doc[\(doc.documentID)] update success!")
             return true;
@@ -163,25 +182,28 @@ public class CouchbaseUtil: NSObject {
             return true;
         }
         
-        var error:NSError?
-        if (doc.deleteDocument(&error)) {
-            LogUtil.debug("doc[\(doc.documentID)] delete success!" )
-            return true;
-        } else {
-            if (error != nil) {
-                LogUtil.printError(&error)
-            } else {
-                LogUtil.error("doc[\(doc.documentID) delete failure!]")
-            }
-            return false;
-        }
+        return false
+        
+//        var error:NSError?
+//        doc.deleteDocument()
+//        if (doc.deleteDocument(&error)) {
+//            LogUtil.debug("doc[\(doc.documentID)] delete success!" )
+//            return true;
+//        } else {
+//            if (error != nil) {
+//                LogUtil.printError(&error)
+//            } else {
+//                LogUtil.error("doc[\(doc.documentID) delete failure!]")
+//            }
+//            return false;
+//        }
     }
     
     public func deleteDocById(id:String) ->Bool{
         
         LogUtil.debug("",title: ObjectUtil.getClassName(self) + " | " + __FUNCTION__)
         
-        if var doc = loadDoc(id) {
+        if let doc = loadDoc(id) {
             return deleteDoc(doc)
         } else {
             LogUtil.debug("doc[\(id)] is not exist!")

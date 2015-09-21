@@ -23,7 +23,7 @@ public class ThreadUtil: NSObject {
     /**
     主线程中异步操作
     
-    :param: doBlock <#doBlock description#>
+    - parameter doBlock: <#doBlock description#>
     */
     public class func gcd_Main_ASync( doBlock: ()->Void){
         dispatch_async(dispatch_get_main_queue(),doBlock)
@@ -34,7 +34,7 @@ public class ThreadUtil: NSObject {
     
     慎用，很容易死循环
     
-    :param: doBlock <#doBlock description#>
+    - parameter doBlock: <#doBlock description#>
     */
     public  class func gcd_Main_Sync( doBlock: ()->Void) {
         
@@ -52,7 +52,7 @@ public class ThreadUtil: NSObject {
     /**
     子线程中异步操作
     
-    :param: doBlock <#doBlock description#>
+    - parameter doBlock: <#doBlock description#>
     */
     public class func gcd_Back_ASync(doBlock: ()->Void){
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
@@ -62,7 +62,7 @@ public class ThreadUtil: NSObject {
     /**
     子线程中同步操作
     
-    :param: doBlock <#doBlock description#>
+    - parameter doBlock: <#doBlock description#>
     */
     public class func gcd_Back_Sync(doBlock: ()->Void) {
         dispatch_async(backQueue, doBlock)
@@ -89,7 +89,7 @@ public class ThreadUtil: NSObject {
     
     
     public class func gcd_doCircle(size:size_t,doBlock:(Int)->Void) {
-        var queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         dispatch_apply(size, queue, doBlock)
     }
     
@@ -101,7 +101,7 @@ public class ThreadUtil: NSObject {
     }
     
     public class func printThreadInfo() {
-        println("\(getThreadInfo())");
+        print("\(getThreadInfo())");
     }
     
     
@@ -111,7 +111,7 @@ public class ThreadUtil: NSObject {
     
     /// 在子线程中同步执行block
     public class func doSyncInSub( doBlock:()->Void) {
-        var semaphore = dispatch_semaphore_create(0)
+        let semaphore = dispatch_semaphore_create(0)
         dispatch_async(conQueue,{
             () -> Void in
             doBlock()

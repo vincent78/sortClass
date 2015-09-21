@@ -13,7 +13,7 @@ public class DateUtil: NSObject {
     /**
     返回时间戳
     
-    :returns: <#return value description#>
+    - returns: <#return value description#>
     */
     public class func getTimesnap() -> String {
         return Date().timeWithDefault()

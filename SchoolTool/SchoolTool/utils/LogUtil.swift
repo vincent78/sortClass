@@ -26,27 +26,27 @@ public class LogUtil: NSObject {
     static let RESET = ESCAPE + ";"   // Clear any foreground or background color
     
     static func red<T>(object:T) {
-        println("\(ESCAPE)fg255,0,0;\(object)\(RESET)")
+        print("\(ESCAPE)fg255,0,0;\(object)\(RESET)")
     }
     
     static func green<T>(object:T) {
-        println("\(ESCAPE)fg0,255,0;\(object)\(RESET)")
+        print("\(ESCAPE)fg0,255,0;\(object)\(RESET)")
     }
     
     static func blue<T>(object:T) {
-        println("\(ESCAPE)fg0,0,255;\(object)\(RESET)")
+        print("\(ESCAPE)fg0,0,255;\(object)\(RESET)")
     }
     
     static func yellow<T>(object:T) {
-        println("\(ESCAPE)fg255,255,0;\(object)\(RESET)")
+        print("\(ESCAPE)fg255,255,0;\(object)\(RESET)")
     }
     
     static func purple<T>(object:T) {
-        println("\(ESCAPE)fg255,0,255;\(object)\(RESET)")
+        print("\(ESCAPE)fg255,0,255;\(object)\(RESET)")
     }
     
     static func cyan<T>(object:T) {
-        println("\(ESCAPE)fg0,255,255;\(object)\(RESET)")
+        print("\(ESCAPE)fg0,255,255;\(object)\(RESET)")
     }
     
     
@@ -63,14 +63,14 @@ public class LogUtil: NSObject {
     public class func info(info:String , title:String){
         if SYS_LOG_LEVEL.rawValue >= LogLevel.info.rawValue {
             if (!title.isEmpty) {
-                println("\(ESCAPE)fg255,255,0;----\(DateUtil.getTimesnapWithoutDate())---- \(title)\(RESET)")
+                print("\(ESCAPE)fg255,255,0;----\(DateUtil.getTimesnapWithoutDate())---- \(title)\(RESET)")
             }
-            println("\(info)")
+            print("\(info)")
         }
     }
     
     public class func info(info:String) {
-        var title = ""
+        let title = ""
         LogUtil.info(info, title: title)
     }
     
@@ -78,9 +78,9 @@ public class LogUtil: NSObject {
     public class func debug(info:String , title:String){
         if (SYS_LOG_LEVEL.rawValue >= LogLevel.debug.rawValue ) {
             if (!title.isEmpty) {
-                println("\(ESCAPE)fg255,0,255;====\(DateUtil.getTimesnapWithoutDate())==== \(title)\(RESET)")
+                print("\(ESCAPE)fg255,0,255;====\(DateUtil.getTimesnapWithoutDate())==== \(title)\(RESET)")
             }
-            println("\(info)")
+            print("\(info)")
         }
     }
     
@@ -92,15 +92,15 @@ public class LogUtil: NSObject {
     public class func error(info:String , title:String){
         if (SYS_LOG_LEVEL.rawValue >= LogLevel.error.rawValue){
             if (!title.isEmpty) {
-                println("\(ESCAPE)fg255,0,0;****\(DateUtil.getTimesnapWithoutDate())**** \(title)\(RESET)")
+                print("\(ESCAPE)fg255,0,0;****\(DateUtil.getTimesnapWithoutDate())**** \(title)\(RESET)")
             }
             
-            println("\(info)")
+            print("\(info)")
         }
     }
     
     public class func error(info:String) {
-        var title = ""
+        let title = ""
         LogUtil.error(info, title: title)
     }
     
@@ -113,7 +113,7 @@ public class LogUtil: NSObject {
     }
     
     public class func printError(error:NSErrorPointer ){
-        var title = ""
+        let title = ""
         LogUtil.printError(error ,title: title)
     }
     
