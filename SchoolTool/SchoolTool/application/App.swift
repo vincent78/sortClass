@@ -103,7 +103,13 @@ class App: NSObject {
     //MARK: - 路径相关
     
     class func getAppPath() ->String{
-        return NSHomeDirectory()
+        if let homePath = NSHomeDirectory() as String! {
+            return homePath
+        } else {
+//            return getDocPath().stringByDeletingLastPathComponent
+            return ""
+        }
+        
 //        if var homePath = NSHomeDirectory(){
 //            return homePath
 //        } else {

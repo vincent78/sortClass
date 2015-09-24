@@ -1,0 +1,3 @@
+[submodule "submodule/fertile"]
+	path = submodule/fertile
+	url = git@github.com:vincent78/fertile.git
