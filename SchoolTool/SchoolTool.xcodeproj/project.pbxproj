@@ -44,6 +44,20 @@
 			remoteGlobalIDString = BF60FDC01B4136A800B78AC1;
 			remoteInfo = SchoolTool;
 		};
+		BFFCDC911BB441070003D86F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFFCDC8C1BB441070003D86F /* fertile.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BFD018AD1BB3A3D4008BEF0D;
+			remoteInfo = fertile;
+		};
+		BFFCDC931BB441070003D86F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFFCDC8C1BB441070003D86F /* fertile.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BFD018B71BB3A3D4008BEF0D;
+			remoteInfo = fertileTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +94,7 @@
 		BF92EF5B1B4A5C5F00833028 /* ObjectUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectUtil.swift; sourceTree = "<group>"; };
 		BF967EB91B578128000349E1 /* ColorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorUtil.swift; sourceTree = "<group>"; };
 		BF967EBB1B57821C000349E1 /* SwiftColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftColors.swift; sourceTree = "<group>"; };
+		BFFCDC8C1BB441070003D86F /* fertile.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = fertile.xcodeproj; path = ../submodule/fertile/fertile.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +124,7 @@
 		BF60FDB81B4136A800B78AC1 = {
 			isa = PBXGroup;
 			children = (
+				BFFCDC8B1BB440E20003D86F /* Dependency */,
 				BF60FDC31B4136A800B78AC1 /* SchoolTool */,
 				BF60FDD91B4136A800B78AC1 /* SchoolToolTests */,
 				BF60FDC21B4136A800B78AC1 /* Products */,
@@ -249,6 +265,23 @@
 			path = utils;
 			sourceTree = "<group>";
 		};
+		BFFCDC8B1BB440E20003D86F /* Dependency */ = {
+			isa = PBXGroup;
+			children = (
+				BFFCDC8C1BB441070003D86F /* fertile.xcodeproj */,
+			);
+			name = Dependency;
+			sourceTree = "<group>";
+		};
+		BFFCDC8D1BB441070003D86F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BFFCDC921BB441070003D86F /* fertile.framework */,
+				BFFCDC941BB441070003D86F /* fertileTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -318,6 +351,12 @@
 			mainGroup = BF60FDB81B4136A800B78AC1;
 			productRefGroup = BF60FDC21B4136A800B78AC1 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BFFCDC8D1BB441070003D86F /* Products */;
+					ProjectRef = BFFCDC8C1BB441070003D86F /* fertile.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				BF60FDC01B4136A800B78AC1 /* SchoolTool */,
@@ -325,6 +364,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BFFCDC921BB441070003D86F /* fertile.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = fertile.framework;
+			remoteRef = BFFCDC911BB441070003D86F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BFFCDC941BB441070003D86F /* fertileTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = fertileTests.xctest;
+			remoteRef = BFFCDC931BB441070003D86F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		BF60FDBF1B4136A800B78AC1 /* Resources */ = {

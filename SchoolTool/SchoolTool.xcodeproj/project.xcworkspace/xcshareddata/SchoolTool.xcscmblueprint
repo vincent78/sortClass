@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3A10870081D2FE97DD7BBFA125A3A701FD8D503A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3A10870081D2FE97DD7BBFA125A3A701FD8D503A" : 0,
+    "48F705C2CD595491FE9E80BF54CF8151C2EABFA0" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "22C6F014-6EE9-46F4-AFBC-76764612E0A7",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3A10870081D2FE97DD7BBFA125A3A701FD8D503A" : "ios",
+    "48F705C2CD595491FE9E80BF54CF8151C2EABFA0" : "ios\/submodule\/fertile\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SchoolTool",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SchoolTool\/SchoolTool.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:vincent78\/sortClass.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3A10870081D2FE97DD7BBFA125A3A701FD8D503A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:vincent78\/fertile.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "48F705C2CD595491FE9E80BF54CF8151C2EABFA0"
+    }
+  ]
+}
