@@ -1,3 +1,15 @@
 [submodule "submodule/fertile"]
 	path = submodule/fertile
 	url = git@github.com:vincent78/fertile.git
+[submodule "submodule/Nimble"]
+	path = submodule/Nimble
+	url = https://github.com/Quick/Nimble.git
+[submodule "submodule/Quick"]
+	path = submodule/Quick
+	url = https://github.com/Quick/Quick.git
+[submodule "submodule/ReactiveCocoa"]
+	path = submodule/ReactiveCocoa
+	url = https://github.com/ReactiveCocoa/ReactiveCocoa.git
+[submodule "submodule/FLEX"]
+	path = submodule/FLEX
+	url = https://github.com/Flipboard/FLEX.git
